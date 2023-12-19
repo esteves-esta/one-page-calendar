@@ -23,7 +23,21 @@ svg.red {
   --color: pink;
 }
 
+#rect {
+  --color: orange;
+}
+
 svg.blue {
   --color: green;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+}
+
+#btn {
+  cursor: pointer;
+}
+
+#btn_handler{
+  cursor: pointer;
+  will-change: contents;
+  transition:transform 200ms ease-out;
 }

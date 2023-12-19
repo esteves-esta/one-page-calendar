@@ -31,3 +31,21 @@ https://openingline.co/
 
 https://www.shinbu.be/
 https://www.webdesignerdepot.com/40-best-new-websites-2023/
+
+----
+
+# icons
+https://chilly-durango.itch.io/tool-ui-icons
+https://franuka.itch.io/rpg-icon-pack-demo
+https://crusenho.itch.io/icons-essential-pack-free-icons
+https://reffpixels.itch.io/appicons
+https://reffpixels.itch.io/genericicons
+https://piiixl.itch.io/1-bit-icons-part-2
+
+https://www.howtogeek.com/733912/a-visual-history-of-windows-icons-from-windows-1-to-11/
+https://archive.org/details/windows-95-all-icons
+https://www.flaticon.com/search?author_id=3666&style_id=1225&type=standard&word=pixel
+
+https://www.flaticon.com/search/3?type=icon&search-group=all&word=pixel
+
+https://www.flaticon.com/search/2?style_id=117&author_id=1&word=pixel&type=standard
