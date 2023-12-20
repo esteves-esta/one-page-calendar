@@ -1,2 +1,3 @@
-export * from './SvgLearning';
-export { default } from './SvgLearning';
+
+export * from "./SvgLearning";
+export { default } from "./SvgLearning";

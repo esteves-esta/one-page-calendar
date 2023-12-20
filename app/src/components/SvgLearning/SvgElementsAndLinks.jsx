@@ -1,4 +1,5 @@
 import React from "react";
+import "./App.css";
 
 function SvgElementsAndLinks() {
   const [t, set] = React.useState(1);

@@ -1,15 +1,10 @@
 // import React from "react";
-import "./App.css";
-// import SvgCalendar from "./components/SvgLearning/SvgCalendarTest";
-import SvgElementsAndLinks from "./components/SvgLearning/SvgElementsAndLinks";
-import SvgLearning from "./components/SvgLearning/SvgLearning";
+import PoemScrollSticky from "./components/PoemScrollSticky";
 
 function App() {
   return (
     <>
-      <SvgLearning />
-      {/* <SvgElementsAndLinks /> */}
-      {/* <SvgCalendar /> */}
+      <PoemScrollSticky />
     </>
   );
 }
