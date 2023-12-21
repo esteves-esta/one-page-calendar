@@ -3,20 +3,216 @@
 }
 
 main {
+  font-family: "Fraunces", serif;
+  font-variation-settings: "wght" 798, "soft" 100, "opsz" 1;
+  --pink-1: #E7C4BE;
+  --pink-2: #FBE8D7;
+  --blue-1: #3E4962;
+  --blue-2: #C8D6D4;
+  --orange-1: #E08E57;
+  --orange-2: #FBB474;
+  --red-1: #4D3144;
+  --red-2: #DA5C4C;
+
+  --top-name: ;
+  --top-github: ;
+  --top-sun: ;
+
+  --text-color: ;
+  --header-bg-color: ;
+  --header-accent-color: ;
+
+  --nav-bg-color: ;
+  --nav-accent-color: ;
+  --nav-text-color: ;
+
+  --content-bg-color: ;
+
   background-color: #777;
   height: 100vh;
   font-size: 1.3rem;
   display: grid;
-  grid-template-rows: 5fr 1.5fr 0fr;
-  transition: 750ms ease;
+  grid-template-rows: 5fr 1fr 0fr;
+  transition: 1s ease-out;
+}
+
+.morning {
+  --top-name: var(--pink-1);
+  --top-github: var(--blue-2);
+  --top-sun: var(--orange-2);
+
+  --text-color: var(--blue-1);
+  --header-bg-color: var(--pink-2);
+  --header-accent-color: var(--pink-1);
+
+  --nav-bg-color: var(--pink-1);
+  --nav-accent-color: var(--pink-2);
+  --nav-text-color: var(--red-1);
+
+  --content-bg-color: var(--blue1);
+}
+
+.afternoon {
+  --top-name: var(--orange-1);
+  --top-github: var(--pink-2);
+  --top-sun: var(--red-2);
+
+  --text-color: var(--red-1);
+
+  --header-bg-color: var(--orange-2);
+  --header-accent-color: var(--orange-1);
+
+  --nav-bg-color: var(--blue-1);
+  --nav-text-color: var(--pink-1);
+  --nav-accent-color: var(--blue-2);
+
+  --content-bg-color: var(--pink-2);
+}
+
+svg {
+  stroke: var(--top-sun);
+}
+
+.afternoon .time-icon::before {
+  content: "";
+  display: block;
+  position: absolute;
+  /* border: 1px solid red; */
+  top: 20px;
+  width: 32px;
+  height: 10px;
+  box-shadow: 0px -3px var(--orange-2);
+  border-top: 3px solid var(--red-2);
+  background-color: var(--orange-2);
+}
+
+.night {
+  --top-name: var(--pink-1);
+  --top-github: var(--blue-2);
+  --top-sun: var(--pink-2);
+
+  --text-color: var(--pink-2);
+  --header-bg-color: var(--blue-1);
+  --header-accent-color: var(--blue-2);
+
+  --nav-bg-color: var(--orange-2);
+  --nav-accent-color: var(--orange-1);
+  --nav-text-color: var(--red-1);
+
+  --content-bg-color: var(--red-1);
+}
+
+header .accent-emoticon {
+  font-style: normal;
+  font-size: .8em;
+  color: var(--header-accent-color);
+  display: block;
+  transition: 350ms ease-out;
+  width: fit-content;
+  display: flex;
+}
+
+header .accent-emoticon:hover:after {
+    animation: wave 1.3s infinite ease-out;
+}
+
+/* header .accent-emoticon::after {
+  content: '/';
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: fit-content;
+  display: block;
+  will-change: transform;
+
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(-10deg);
+  }
+
+  50% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+} */
+
+/* header .accent-emoticon:hover::after,
+header .accent-emoticon:hover::before {
+  visibility: visible;
+} */
+
+/* header .accent-emoticon::after {
+  content: "‧₊˚";
+  font-variation-settings: "wght" 900, "soft" 100, "opsz" 1;
+  color: var(--header-accent-color);
+  position: absolute;
+  right: 24px;
+  visibility: hidden;
+  will-change: transform;
+  animation: testando 0.9s infinite cubic-bezier(0.76, 0, 0.24, 1);
+  animation-direction: alternate;
+}
+
+header .accent-emoticon::before {
+  content: "‧⁺˖";
+  font-variation-settings: "wght" 900, "soft" 100, "opsz" 1;
+  color: var(--header-accent-color);
+  position: absolute;
+  right: -15px;
+  visibility: hidden;
+  will-change: transform;
+  animation: testando2 0.9s infinite cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+@keyframes testando2 {
+  0% {
+    transform: translateY(-6px) rotate(2deg) scale(0.8);
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: translateY(0px) rotate(0deg) scale(0.89);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: translateY(-6px) rotate(2deg) scale(0.8);
+    opacity: 0.4;
+  }
+}
+
+@keyframes testando {
+  0% {
+    transform: translateY(0px) rotate(0deg) scale(0.9);
+    opacity: 0.9;
+  }
+
+  50% {
+    transform: translateY(-6px) rotate(2deg) scale(0.99);
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: translateY(0px) rotate(0deg) scale(0.9);
+    opacity: 0.9;
+  }
+} */
+
+
+nav .accent-emoticon {
+  color: var(--nav-accent-color)
 }
 
 header {
-  background-color: #FBE8D7;
-  /* padding: 1em; */
+  background-color: var(--header-bg-color);
+  color: var(--text-color);
 }
 
-.topName {
+.top-fixed {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -28,9 +224,40 @@ header {
   left: var(--inner-padding);
 }
 
-.goUp {
-  grid-template-rows: 0fr 2fr 5fr;
+.top-fixed *:nth-child(1) {
+  color: var(--top-name);
 }
+
+.top-fixed *:nth-child(3) {
+  color: var(--top-github);
+}
+
+.closeHeader {
+  grid-template-rows: 0fr 2fr 5fr;
+  transition: 1s ease;
+}
+
+.header-content {
+  padding: var(--inner-padding);
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid red; */
+  opacity: 1;
+  position: absolute;
+  transform: translateY(30vh);
+  transition:
+    transform 250ms ease,
+    opacity 550ms ease 250ms;
+}
+
+.closeHeader .header-content {
+  transform: translateY(-100vh);
+  opacity: 0;
+  transition:
+    opacity 250ms ease,
+    transform 550ms ease 250ms;
+}
+
 
 nav {
   padding: var(--inner-padding);
@@ -38,8 +265,13 @@ nav {
 }
 
 nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   position: relative;
-  background-color: #E7C4BE;
+  background-color: var(--nav-bg-color);
+  color: var(--nav-text-color);
   /* height: 10vh; */
 }
 
@@ -53,21 +285,25 @@ article {
   grid-template-columns: 100% 0%;
   transition: grid-template-columns 750ms ease;
   overflow-x: hidden;
-  transition: grid-template-columns 3s ease;
 }
 
-.next {
+.projects {
   grid-template-columns: 0% 100%
 }
 
 section {
-  background-color: #C8D6D4;
+  background-color: var(--content-bg-color);
+  color: var(--text-color);
   /* height: 30vh; */
   height: 100%;
 }
 
 .content {
-  width: 0%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+
+  width: 0px;
   opacity: 0;
   transition:
     opacity 450ms ease,
@@ -85,10 +321,10 @@ section {
     opacity 550ms ease 400ms;
 }
 
-article section:nth-child(1) {
+/* article section:nth-child(1) {
   opacity: .4;
 }
 
 article section:nth-child(2) {
   opacity: .8;
-}
+} */
