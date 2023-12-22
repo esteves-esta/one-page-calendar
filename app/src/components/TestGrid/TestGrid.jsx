@@ -2,8 +2,32 @@
 import React from "react";
 import { range } from "../../helpers/range";
 import { getDay } from "date-fns";
+import { Pen } from "lucide-react";
+import { weekLangAbbrs, monthLangAbbrs } from "./constants";
+
+/* 
+
+- lang
+  - week 
+  - month
+
+- make calendar all squares
+- make calendar all lines -h and v
+- only -h
+- only v
+
+
+- day of week color
+- day of week hover all
+- select 
+- bg color / week bg color and color white
+-border-color
+ */
 
 function TestGrid() {
+  const [calendarStyle] = React.useState("square");
+  // square table only-h only-v
+
   const [days, setDays] = React.useState([]);
   const [weeks, setWeeks] = React.useState([
     0,
@@ -56,29 +80,11 @@ function TestGrid() {
     4,
     5,
   ]);
-  const [weekAbbr, setWeekAbbr] = React.useState({
-    0: "sun",
-    1: "mon",
-    2: "tue",
-    3: "wed",
-    4: "thu",
-    5: "fri",
-    6: "sat",
-  });
-  const [monthAbbr, setMonthAbbr] = React.useState({
-    0: "jan",
-    1: "fev",
-    2: "mar",
-    3: "abr",
-    4: "mai",
-    5: "jun",
-    6: "jul",
-    7: "ago",
-    8: "set",
-    9: "out",
-    10: "nov",
-    11: "dez",
-  });
+  const [weekAbbr, setWeekAbbr] = React.useState(weekLangAbbrs.ko);
+  const [weekCharNum, setWeekCharNum] = React.useState(1);
+
+  const [monthAbbr, setMonthAbbr] = React.useState(monthLangAbbrs.ko);
+  const [monthCharNum, setMonthCharNum] = React.useState(1);
 
   // which day of the week the month starts
   const getAllMonthsFirstDayOfWeek = (year = 2023) => {
@@ -100,6 +106,7 @@ function TestGrid() {
   };
 
   const [year, setYear] = React.useState(2023);
+  const [showCustomization, setShowCustomization] = React.useState(false);
   const [monthsYear, setMonthsYear] = React.useState(() =>
     getAllMonthsFirstDayOfWeek()
   );
@@ -114,7 +121,7 @@ function TestGrid() {
     const line3 = [];
     const line4 = [];
     const line5 = [];
-    range(1, 32).forEach((day) => {
+    range(1, 36).forEach((day) => {
       if (day <= 7) {
         line1.push(day);
       } else if (day > 7 && day <= 14) {
@@ -132,11 +139,48 @@ function TestGrid() {
   }, []);
 
   return (
-    <div>
-      <button onClick={()=> setYear(2024)}>
-        change year
-      </button>
-      <main>
+    <main
+      className={calendarStyle}
+      style={{
+        "--dayBg": "paleturquoise",
+        "--weekBg": "white",
+        "--monthBg": "paleturquoise",
+        "--dayOfWeek0": "black",
+        "--dayOfWeek1": "grey",
+        "--dayOfWeek2": "grey",
+        "--dayOfWeek3": "grey",
+        "--dayOfWeek4": "#444",
+        "--dayOfWeek5": "#333",
+        "--dayOfWeek6": "#ccc",
+      }}
+    >
+      <header>
+        <button onClick={() => setYear(2024)}>change year</button>
+        <button onClick={() => setShowCustomization(!showCustomization)}>
+          toggle customizations
+        </button>
+      </header>
+
+      <div className="calendar">
+        {showCustomization && (
+          <>
+            {/* <div className="daytoogle">
+              <button className="btn-toogle">
+                <Pen size={20} />
+              </button>
+            </div> */}
+            <div className="weektoogle">
+              <button className="btn-toogle">
+                <Pen size={20} />
+              </button>
+            </div>
+            <div className="monthtoogle">
+              <button className="btn-toogle">
+                <Pen size={20} />
+              </button>
+            </div>
+          </>
+        )}
         <div className="months">
           {range(7).map((dayOfWeek) => (
             <div
@@ -145,7 +189,7 @@ function TestGrid() {
             >
               {monthsYear[dayOfWeek].map((month) => (
                 <div key={month} className={`month`}>
-                  {monthAbbr[month]}
+                  {monthAbbr[month].slice(0, monthCharNum)}
                 </div>
               ))}
             </div>
@@ -157,7 +201,7 @@ function TestGrid() {
             <div key={`line${index}`} className={`dayline line${index + 1}`}>
               {line.map((day) => (
                 <div key={day} className={`day`}>
-                  {day}
+                  {day <= 31 ? day : ""}
                 </div>
               ))}
             </div>
@@ -167,12 +211,12 @@ function TestGrid() {
         <div className="weeks">
           {weeks.map((week, index) => (
             <div key={`${week}${index}`} className={`week dayOfWeek-${week}`}>
-              {weekAbbr[week]}
+              {weekAbbr[week].slice(0, weekCharNum)}
             </div>
           ))}
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
 
