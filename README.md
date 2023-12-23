@@ -46,6 +46,8 @@
 ## 🔨 To do
 -- save all states with statesticky
 -- responsiveness
+-- transitions
+--- color input https://courses.joshwcomeau.com/joy-of-react/02-state/06.02-state-exercises
 - [ ] Customizations
     - [ ] change background color of cell by section
     - [ ] change color of each day of the week
