@@ -4,12 +4,12 @@ import Draggable from "react-draggable";
 import classes from "./styles.module.css";
 import { X } from "lucide-react";
 
-function DraggableWindow({ windowLabel, children, onClose }) {
+function DraggableWindow({ defaultPosition, windowLabel, children, onClose }) {
   const nodeRef = React.useRef(null);
 
   return (
     <Draggable
-      defaultPosition={{ x: 100, y: 100 }}
+      defaultPosition={defaultPosition}
       bounds="parent"
       handle=".handler"
       nodeRef={nodeRef}

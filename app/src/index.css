@@ -1,17 +1,36 @@
 main {
   padding: 2em;
+  padding-top: 0em;
   overflow: hidden;
   font-family: 'Noto Sans KR', sans-serif;
 }
 
 header {
+  padding: 1em;
   /* border: 1px solid; */
   display: flex;
   justify-content: space-between;
 }
+.baseConfig {
+  display: flex;
+  gap: 10px
+}
+
+.lower * {
+  text-transform: lowercase;
+}
+
+.upper * {
+  text-transform: uppercase;
+}
+
+.title * {
+  text-transform: capitalize;
+}
+
 
 .calendar {
-  height: 100%;
+  height: 80vh;
   display: grid;
   grid-template-columns: .1fr 1fr 2fr .1fr;
   grid-template-rows: 1fr 5fr;
@@ -360,6 +379,7 @@ hover all day of week similar
 
 
 :root {
+  user-select: none;
   --dayBg: paleturquoise;
   --weekBg: pink;
   --monthBg: paleturquoise;

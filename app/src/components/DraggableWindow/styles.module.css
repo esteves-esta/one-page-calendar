@@ -4,12 +4,15 @@
   background-color: rgb(222, 248, 248);
   border: .3em solid turquoise;
   width: 300px;
-  height: 150px;
+  height: fit-content;
   border-radius: 3px;
 }
 
 .content {
   padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .handle {
