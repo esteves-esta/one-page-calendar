@@ -1,5 +1,7 @@
 main {
   padding: 2em;
+  overflow: hidden;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 header {
@@ -9,11 +11,11 @@ header {
 }
 
 .calendar {
-  height: 100vh;
+  height: 100%;
   display: grid;
   grid-template-columns: .1fr 1fr 2fr .1fr;
   grid-template-rows: 1fr 5fr;
-  font-family: 'Noto Sans KR', sans-serif;
+
 }
 
 .daytoogle,
@@ -302,25 +304,25 @@ header {
     0px .3em 0px .05em blue;
 }
 
+/* background: linear-gradient(0.25turn, hsla(198, 45%, 45%, 0.164), #ebf8e1, hsla(31, 91%, 60%, 0.267)); */
 .week:hover:after,
 .day:hover:after {
   content: '';
   display: block;
   background-color: #cdcdcd;
-  /* background: linear-gradient(0.25turn, hsla(198, 45%, 45%, 0.164), #ebf8e1, hsla(31, 91%, 60%, 0.267)); */
   box-shadow:
     0px 0px 10px 0px #cdcdcd;
-  /* border: 2px solid gray; */
-  /* border-top: 2px solid gray; */
+
   position: absolute;
   width: calc(100% - 2.5em);
-  /* transform: translateY(-4%); */
   height: 10.5%;
   z-index: -1;
-  /* height: 8%; small screen */
   opacity: .4;
   left: 2.5em;
 }
+
+/* transform: translateY(-4%); */
+/* height: 8%; small screen */
 
 /* ------------------- */
 .week {

@@ -1,0 +1,36 @@
+.container {
+  position: absolute;
+  z-index: 9;
+  background-color: rgb(222, 248, 248);
+  border: .3em solid turquoise;
+  width: 300px;
+  height: 150px;
+  border-radius: 3px;
+}
+
+.content {
+  padding: 1em;
+}
+
+.handle {
+  font-family: 'Noto Sans KR', sans-serif;
+  width: 100%;
+  padding: .4em;
+  cursor: move;
+  background-color: turquoise;
+  font-weight: 500;
+  font-size: .9em;
+  letter-spacing: .03em;
+  display: flex;
+  color: white;
+  justify-content: space-between;
+}
+
+.handle button {
+  background-color: transparent;
+  /* border: 2px solid white; */
+  border: none;
+  color: white;
+  background-color: turquoise;
+  border-radius: 4px;
+}

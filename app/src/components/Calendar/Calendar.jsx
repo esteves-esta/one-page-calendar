@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { range } from "../../helpers/range";
@@ -24,7 +25,7 @@ import { weekLangAbbrs, monthLangAbbrs } from "./constants";
 -border-color
  */
 
-function TestGrid() {
+function Calendar({ toggleMonth }) {
   const [calendarStyle] = React.useState("square");
   // square table only-h only-v
 
@@ -140,6 +141,7 @@ function TestGrid() {
 
   return (
     <main
+      onDrag={(event) => event.preventDefault()}
       className={calendarStyle}
       style={{
         "--dayBg": "paleturquoise",
@@ -175,7 +177,7 @@ function TestGrid() {
               </button>
             </div>
             <div className="monthtoogle">
-              <button className="btn-toogle">
+              <button onClick={toggleMonth} className="btn-toogle">
                 <Pen size={20} />
               </button>
             </div>
@@ -220,4 +222,4 @@ function TestGrid() {
   );
 }
 
-export default TestGrid;
+export default Calendar;

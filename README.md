@@ -1,53 +1,90 @@
-https://www.dbadesigns.com/wp-content/uploads/2011/10/iStock_000016267774Medium.jpg
+# One page calendar
+![Header image ](/header-readme.png "Header")
 
-# one-page-calendar
-
-https://bigthink.com/starts-with-a-bang/one-page-calendar/
-
-https://flaviocopes.com/svg/
-
-https://www.madebymike.com.au/writing/svg-has-more-potential/
-
-https://macwright.com/2013/06/25/just-enough-svg.html
-
-https://www.smashingmagazine.com/2019/05/svg-design-tools-practical-guide/
-
-https://github.com/willianjusten/awesome-svg/blob/master/topics/Animation.md
-https://www.smashingmagazine.com/2016/07/an-svg-animation-case-study/
-
-https://github.com/willianjusten/awesome-svg/blob/master/topics/Patterns.md
---
-
-https://css-tricks.com/how-to-use-css-grid-for-sticky-headers-and-footers/
+>## "It's simpler, more compact, and reusable from year-to-year in a way that no other calendar is. "
+> Idea from this article of magazine [big think](https://bigthink.com/starts-with-a-bang/one-page-calendar/)
 
 
-https://css-tricks.com/animating-css-grid-how-to-examples/
+> ### Access app on the link:
+> https://esteves-esta.github.io/one-page-calendar/
 
-https://codepen.io/mrdanielschwarz/pen/vYaLmeZ
+---
+## Index
+
+# Table of Contents
+- [One page calendar](#one-page-calendar)
+  - [Index](#index)
+- [Table of Contents](#table-of-contents)
+  - [Printscreen](#printscreen)
+  - [📖 Features](#-features)
+    - [✅ Done ✨✨](#-done-)
+  - [🔨 To do](#-to-do)
+  - [🧰 Tech Stack](#-tech-stack)
+  - [🚀 How to run locally](#-how-to-run-locally)
+
+---
+---
+
+## Printscreen
+<img alt="" src="" width="550" />
+
+---
+## 📖 Features
+### ✅ Done ✨✨
+- [x] Calendar grid
+- [ ] Change year
+- [ ] 
+
+## 🔨 To do
+- [ ] Customizations
+  - [ ] change language (pt/eng/ko/jp)
+  - [ ] change num. of charaters shown on grid (month and week)
+  - [ ] change calendar styles
+    - [ ] all square / table / horizontal lines / vertical lines
+    - [ ] change by sections (months / weeks / days)
+    - [ ] change border color of grid
+    - [ ] change background color of grid
+    - [ ] change background color of section
+    - [ ] change color of each day of the week
+- [ ] 
+
+---
+
+## 🧰 Tech Stack
+
+- Vite
+- React
+- Lucide React - icons
+
+---
+
+## 🚀 How to run locally
+
+1. Install packages
+
+      ```
+      npm i 
+      ```
+      
+      or
+
+      ```
+      yarn i
+      ```
+
+2. Run dev server
+
+      ```
+      npm run dev 
+      ```
+      
+      or
+
+      ```
+      yarn dev
+      ```
 
 
-https://www.klausheller.at/
-https://plantica.net/en/
 
-https://openingline.co/
 
-https://www.shinbu.be/
-https://www.webdesignerdepot.com/40-best-new-websites-2023/
 
-----
-
-# icons
-https://chilly-durango.itch.io/tool-ui-icons
-https://franuka.itch.io/rpg-icon-pack-demo
-https://crusenho.itch.io/icons-essential-pack-free-icons
-https://reffpixels.itch.io/appicons
-https://reffpixels.itch.io/genericicons
-https://piiixl.itch.io/1-bit-icons-part-2
-
-https://www.howtogeek.com/733912/a-visual-history-of-windows-icons-from-windows-1-to-11/
-https://archive.org/details/windows-95-all-icons
-https://www.flaticon.com/search?author_id=3666&style_id=1225&type=standard&word=pixel
-
-https://www.flaticon.com/search/3?type=icon&search-group=all&word=pixel
-
-https://www.flaticon.com/search/2?style_id=117&author_id=1&word=pixel&type=standard
