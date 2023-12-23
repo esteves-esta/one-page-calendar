@@ -8,28 +8,48 @@ import WeeksGrid from "./WeeksGrid";
 import { CustomizationContext } from "../CustomizationProvider";
 
 function Calendar() {
-  const { calendarBaseStyle } = React.useContext(CustomizationContext);
+  const {
+    baseStrokeColor,
+    baseTextColor,
+    baseBgColor,
+    basePageBgColor,
+
+    weekDay0Color,
+    weekDay1Color,
+    weekDay2Color,
+    weekDay3Color,
+    weekDay4Color,
+    weekDay5Color,
+    weekDay6Color,
+  } = React.useContext(CustomizationContext);
 
   return (
     <main
       onDrag={(event) => event.preventDefault()}
       // className={calendarBaseStyle}
       style={{
-        "--dayBg": "transparent",
-        "--weekBg": "transparent",
-        "--monthBg": "transparent",
-        "--dayOfWeek0": "black",
-        "--dayOfWeek1": "grey",
-        "--dayOfWeek2": "grey",
-        "--dayOfWeek3": "grey",
-        "--dayOfWeek4": "#444",
-        "--dayOfWeek5": "#333",
-        "--dayOfWeek6": "#ccc",
+        "--textColor": baseTextColor,
+        "--stroke-width": "2px",
+
+        "--dayStroke": baseStrokeColor,
+        "--weekStroke": baseStrokeColor,
+        "--monthStroke": baseStrokeColor,
+
+        "--dayBg": baseBgColor,
+        "--weekBg": baseBgColor,
+        "--monthBg": baseBgColor,
+        "--dayOfWeek0": weekDay0Color || baseTextColor,
+        "--dayOfWeek1": weekDay1Color || baseTextColor,
+        "--dayOfWeek2": weekDay2Color || baseTextColor,
+        "--dayOfWeek3": weekDay3Color || baseTextColor,
+        "--dayOfWeek4": weekDay4Color || baseTextColor,
+        "--dayOfWeek5": weekDay5Color || baseTextColor,
+        "--dayOfWeek6": weekDay6Color || baseTextColor,
       }}
     >
+      {weekDay1Color === undefined ? "v" : "s"}
       <div className="calendar">
         <MonthsGrid />
-
         <DaysGrid />
 
         <WeeksGrid />

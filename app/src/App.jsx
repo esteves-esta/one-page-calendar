@@ -17,6 +17,15 @@ function App() {
     calendarStyles,
     setCalendarBaseStyle,
     calendarBaseStyle,
+
+    baseStrokeColor,
+    setBaseStrokeColor,
+    baseBgColor,
+    setBaseBgColor,
+    basePageBgColor,
+    setBasePageBgColor,
+    baseTextColor,
+    setBaseTextColor,
   } = React.useContext(CustomizationContext);
 
   const [customizationOpen, setCustomizationOpen] = React.useState(false);
@@ -26,7 +35,12 @@ function App() {
   }
 
   return (
-    <>
+    <div
+      className="mainContainer"
+      style={{
+        "--pageBgColor": basePageBgColor,
+      }}
+    >
       <header>
         <div className="baseConfig">
           <button onClick={toggleBaseCustomization} className="btn-toogle">
@@ -68,11 +82,50 @@ function App() {
             label="Styles"
             options={calendarStyles}
           />
+          <SelectBox
+            id="stroke"
+            value={baseStrokeColor}
+            onValueChange={setBaseStrokeColor}
+            placeholder="Choose stroke color"
+            label="stroke color"
+            options={["paleturquoise", "pink", "rosybrown", "white", "black"]}
+          />
+          <SelectBox
+            id="cellsBgColor"
+            value={baseBgColor}
+            onValueChange={setBaseBgColor}
+            placeholder="Choose cell color"
+            label="Cell bg color"
+            options={[
+              "transparent",
+              "paleturquoise",
+              "pink",
+              "rosybrown",
+              "white",
+              "black",
+            ]}
+          />
+          <SelectBox
+            id="pageBgClor"
+            value={basePageBgColor}
+            onValueChange={setBasePageBgColor}
+            placeholder="Choose page bg color"
+            label="Page bg color"
+            options={["paleturquoise", "pink", "rosybrown", "white", "black"]}
+          />
+          <SelectBox
+            id="baseTextColor"
+            value={baseTextColor}
+            onValueChange={setBaseTextColor}
+            placeholder="Choose text color"
+            label="Text color"
+            options={["paleturquoise", "pink", "rosybrown", "white", "black"]}
+          />
         </DraggableWindow>
       )}
 
       <Calendar />
-    </>
+    </div>
   );
 }
 

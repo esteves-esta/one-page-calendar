@@ -1,6 +1,6 @@
 @import url("./styles/calendar.css");
 
-body {
+.mainContainer {
   background-color: var(--pageBgColor);
 }
 
@@ -8,6 +8,7 @@ main {
   padding: 2em;
   padding-top: 0em;
   /* overflow: hidden; */
+  color: var(--textColor);
   font-family: 'Noto Sans KR', sans-serif;
 }
 
@@ -26,6 +27,7 @@ header {
 
 :root {
   user-select: none;
+  --textColor: black;
   --pageBgColor: #f1f2f2;
   --stroke-width: 2px;
 

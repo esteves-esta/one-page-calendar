@@ -32,20 +32,37 @@
 ## 📖 Features
 ### ✅ Done ✨✨
 - [x] Calendar grid
-- [ ] Change year
-- [ ] 
+- [x] Change year
+- [x] Customizations
+  - [x] change language (pt/eng/ko/jp)
+  - [x ] change num. of charaters shown on grid (month and week)
+  - [x] change calendar styles
+    - [x] all
+    - [x] by section (months / weeks / days)
+  - [x] change border color of grid
+  - [x] change background color of grid
+  - [x] change background color of cell
 
 ## 🔨 To do
+-- save all states with statesticky
+-- responsiveness
 - [ ] Customizations
-  - [ ] change language (pt/eng/ko/jp)
-  - [ ] change num. of charaters shown on grid (month and week)
-  - [ ] change calendar styles
-    - [ ] all square / table / horizontal lines / vertical lines
-    - [ ] change by sections (months / weeks / days)
-    - [ ] change border color of grid
-    - [ ] change background color of grid
-    - [ ] change background color of section
+    - [ ] change background color of cell by section
     - [ ] change color of each day of the week
+    - [ ] font 
+      - [ ] size (slider)
+      - [ ] weight (toggle group multiple)
+    - [ ] - on square style- border -radius change -slider
+- month custom open input
+
+- day of week - change color for each day
+- day of week - custom - open input 
+  - custom toggle - choose between bg or text color
+
+- day of week hover all
+- select day and year - and open toast saying if you want to save date
+   - if saved stays on the day a box-shadow with a color just for that month
+
 - [ ] 
 
 ---
