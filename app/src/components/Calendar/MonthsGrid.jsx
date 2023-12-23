@@ -24,7 +24,7 @@ function MonthsGrid() {
     React.useState(false);
   const [letterCase, setLetterCase] = React.useState("title");
 
-  const [monthstyle, setmonthStyle] = React.useState("");
+  const [monthstyle, setmonthStyle] = React.useState();
   const [monthLang, setmonthLang] = React.useState(baseLang);
   const [classes, setClasses] = React.useState("months");
   const [monthAbbr, setMonthAbbr] = React.useState(monthLangAbbrs.ko);
@@ -65,13 +65,12 @@ function MonthsGrid() {
   );
 
   React.useEffect(() => {
-    setClasses("months");
     setmonthStyle("");
   }, [calendarBaseStyle]);
 
   React.useEffect(() => {
-    setClasses(`${monthstyle} months`);
-  }, [monthstyle]);
+    setClasses(`${!monthstyle ? calendarBaseStyle : monthstyle} months`);
+  }, [calendarBaseStyle,monthstyle]);
 
   React.useEffect(() => {
     setClasses((currentClasses) => {

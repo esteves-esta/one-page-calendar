@@ -68,7 +68,7 @@ function WeeksGrid() {
     5,
   ]);
 
-  const [weekstyle, setWeekStyle] = React.useState("");
+  const [weekstyle, setWeekStyle] = React.useState();
   const [weekLang, setWeekLang] = React.useState(baseLang);
   const [classes, setClasses] = React.useState("weeks");
   const [customizationOpen, setCustomizationOpen] = React.useState(false);
@@ -81,13 +81,12 @@ function WeeksGrid() {
   }
 
   React.useEffect(() => {
-    setClasses("weeks");
     setWeekStyle("");
   }, [calendarBaseStyle]);
 
   React.useEffect(() => {
-    setClasses(`${weekstyle} weeks`);
-  }, [weekstyle]);
+    setClasses(`${!weekstyle ? calendarBaseStyle : weekstyle} weeks`);
+  }, [calendarBaseStyle,weekstyle]);
 
   React.useEffect(() => {
     setClasses((currentClasses) => {

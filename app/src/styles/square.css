@@ -1,0 +1,38 @@
+/* --------------------------- */
+.square .days,
+.square.days,
+.square .dayline,
+.square .weeks,
+.square.weeks,
+.square .months,
+.square.months,
+.square .monthLine {
+  gap: 10px;
+}
+
+.square .day,
+.square .week,
+.square .month {
+  border-width: var(--stroke-width);
+  border-style: solid;
+  border-radius: 3px;
+}
+
+.square.days,
+.square.weeks,
+.square.months {
+  padding: .5em;
+}
+
+.square .day {
+  border-color: var(--dayStroke);
+}
+
+.square .week {
+  border-color: var(--weekStroke);
+}
+
+.square .month {
+  border-color: var(--monthStroke);
+}
+

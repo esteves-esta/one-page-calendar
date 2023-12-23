@@ -34,7 +34,7 @@ function DaysGrid() {
   const { showCustomization, calendarBaseStyle, calendarStyles } =
     React.useContext(CustomizationContext);
 
-  const [daystyle, setDayStyle] = React.useState("");
+  const [daystyle, setDayStyle] = React.useState();
   const [classes, setClasses] = React.useState("days");
   const [customizationOpen, setCustomizationOpen] = React.useState(false);
 
@@ -42,14 +42,13 @@ function DaysGrid() {
     setCustomizationOpen(!customizationOpen);
   }
 
-    React.useEffect(() => {
-      setClasses("days");
-      setDayStyle("");
-    }, [calendarBaseStyle]);
+  React.useEffect(() => {
+    setDayStyle("");
+  }, [calendarBaseStyle]);
 
-    React.useEffect(() => {
-      setClasses(`${daystyle} days`);
-    }, [daystyle]);
+  React.useEffect(() => {
+    setClasses(`${!daystyle ? calendarBaseStyle : daystyle} days`);
+  }, [calendarBaseStyle, daystyle]);
 
   return (
     <>

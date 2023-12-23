@@ -1,0 +1,111 @@
+@import url("./weeks.css");
+@import url("./months.css");
+@import url("./days.css");
+@import url("./square.css");
+@import url("./only-v.css");
+@import url("./only-h.css");
+@import url("./table.css");
+
+.calendar {  
+  min-height: 80vh;
+  display: grid;
+  grid-template-columns: .1fr 1fr 2fr .1fr;
+  grid-template-rows: 1fr 5fr;
+}
+
+
+
+.lower * {
+  text-transform: lowercase;
+}
+
+.upper * {
+  text-transform: uppercase;
+}
+
+.title * {
+  text-transform: capitalize;
+}
+
+
+
+.daytoogle,
+.weektoogle,
+.monthtoogle {
+  /* border: 1px solid; */
+  display: grid;
+  place-content: center;
+  padding: .5em;
+}
+
+.daytoogle {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+}
+
+.weektoogle {
+  grid-row: 2 / 3;
+  grid-column: 4 / -1;
+}
+
+.monthtoogle {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+  align-self: flex-end;
+  justify-content: end !important;
+}
+
+.btn-toogle {
+  min-width: 50px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 100px;
+  padding: .8em;
+  transition: background 750ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.btn-toogle:hover {
+  background-color: #efefef;
+}
+
+/* ------------------- */
+.month {
+  background-color: var(--monthBg);
+}
+
+.week {
+  background-color: var(--weekBg);
+}
+
+.day {
+  background-color: var(--dayBg);
+}
+
+.week:hover,
+.day:hover {
+  box-shadow:
+    0px .3em 0px .05em blue;
+}
+
+/* background: linear-gradient(0.25turn, hsla(198, 45%, 45%, 0.164), #ebf8e1, hsla(31, 91%, 60%, 0.267)); */
+/* 
+ TODO OPEN LATER
+.week:hover:after,
+.day:hover:after {
+  content: '';
+  display: block;
+  background-color: #cdcdcd;
+  box-shadow:
+    0px 0px 10px 0px #cdcdcd;
+
+  position: absolute;
+  width: calc(100% - 2.5em);
+  height: 10.5%;
+  z-index: -1;
+  opacity: .4;
+  left: 2.5em;
+} */
+
+/* transform: translateY(-4%); */
+/* height: 8%; small screen */

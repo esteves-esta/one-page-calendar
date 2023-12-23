@@ -1,0 +1,58 @@
+/* --------------------------- */
+
+.only-h .month {
+  border-radius: 0px;
+  border: none;
+}
+
+.only-h.months,
+.only-h .monthLine {
+  gap: 0px;
+  padding: 0em;
+}
+
+.only-h .monthLine {
+  border: var(--stroke-width) solid var(--monthStroke);
+  border-left-width: .05em;
+  border-right-width: .5em;
+  /* border-bottom-width: 0px; */
+}
+
+/* --------------------------- */
+.only-h .dayline {
+  border: var(--stroke-width) solid var(--dayStroke);
+  border-right: none;
+  /* border-top: none; */
+  gap: 0px;
+}
+
+.only-h .dayline:last-child {
+  border-right: var(--stroke-width) solid var(--dayStroke);
+  ;
+}
+
+.only-h.days,
+.only-h .days {
+  gap: 0px;
+  /* border-top: 2px solid var(--dayStroke); */
+}
+
+.only-h .day {
+  gap: 0px;
+  border: none;
+  border-radius: 0px;
+}
+
+/* --------------------------- */
+.only-h.weeks,
+.only-h .weeks {
+  border: var(--stroke-width) solid var(--weekStroke); 
+  padding: 0em;
+  gap: 0px;
+}
+
+.only-h .week {
+  border: none;
+  border-radius: 0px;
+  border-left: var(--stroke-width) solid var(--weekStroke);
+}

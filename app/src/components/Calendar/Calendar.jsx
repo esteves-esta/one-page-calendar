@@ -13,11 +13,11 @@ function Calendar() {
   return (
     <main
       onDrag={(event) => event.preventDefault()}
-      className={calendarBaseStyle}
+      // className={calendarBaseStyle}
       style={{
-        "--dayBg": "paleturquoise",
-        "--weekBg": "white",
-        "--monthBg": "paleturquoise",
+        "--dayBg": "transparent",
+        "--weekBg": "transparent",
+        "--monthBg": "transparent",
         "--dayOfWeek0": "black",
         "--dayOfWeek1": "grey",
         "--dayOfWeek2": "grey",
