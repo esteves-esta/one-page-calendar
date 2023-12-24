@@ -3,7 +3,7 @@
   z-index: 9;
   background-color: rgb(222, 248, 248);
   border: .3em solid turquoise;
-  width: 300px;
+  min-width: 300px;
   height: fit-content;
   border-radius: 3px;
 }

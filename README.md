@@ -42,6 +42,7 @@
   - [x] change border color of grid
   - [x] change background color of grid
   - [x] change background color of cell
+  - [x] change color of each day of the week for each day
 
 ## 🔨 To do
 -- save all states with statesticky
@@ -49,23 +50,16 @@
 -- transitions
 --- color input https://courses.joshwcomeau.com/joy-of-react/02-state/06.02-state-exercises
 - [ ] Customizations
-    - [ ] change background color of cell by section
-    - [ ] change color of each day of the week
     - [ ] font 
       - [ ] size (slider)
       - [ ] weight (toggle group multiple)
     - [ ] - on square style- border -radius change -slider
 - month custom open input
-
-- day of week - change color for each day
-- day of week - custom - open input 
-  - custom toggle - choose between bg or text color
-
 - day of week hover all
 - select day and year - and open toast saying if you want to save date
    - if saved stays on the day a box-shadow with a color just for that month
 
-- [ ] 
+- [ ] sounds - paper scratching, 
 
 ---
 

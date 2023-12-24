@@ -12,16 +12,19 @@ function Calendar() {
     baseStrokeColor,
     baseTextColor,
     baseBgColor,
-    basePageBgColor,
 
-    weekDay0Color,
-    weekDay1Color,
-    weekDay2Color,
-    weekDay3Color,
-    weekDay4Color,
-    weekDay5Color,
-    weekDay6Color,
+    weekDaysToggle,
+    weekDaysColors,
   } = React.useContext(CustomizationContext);
+
+  function getDayOfWeekTextColor(dayOfWeek) {
+    if (weekDaysToggle[dayOfWeek]) return baseTextColor;
+    return weekDaysColors[dayOfWeek] || baseTextColor;
+  }
+
+  function getDayOfWeekBgColor(dayOfWeek) {
+    return weekDaysToggle[dayOfWeek] ? weekDaysColors[dayOfWeek] : baseBgColor;
+  }
 
   return (
     <main
@@ -38,16 +41,24 @@ function Calendar() {
         "--dayBg": baseBgColor,
         "--weekBg": baseBgColor,
         "--monthBg": baseBgColor,
-        "--dayOfWeek0": weekDay0Color || baseTextColor,
-        "--dayOfWeek1": weekDay1Color || baseTextColor,
-        "--dayOfWeek2": weekDay2Color || baseTextColor,
-        "--dayOfWeek3": weekDay3Color || baseTextColor,
-        "--dayOfWeek4": weekDay4Color || baseTextColor,
-        "--dayOfWeek5": weekDay5Color || baseTextColor,
-        "--dayOfWeek6": weekDay6Color || baseTextColor,
+
+        "--dayOfWeek0": getDayOfWeekTextColor(0),
+        "--dayOfWeek1": getDayOfWeekTextColor(1),
+        "--dayOfWeek2": getDayOfWeekTextColor(2),
+        "--dayOfWeek3": getDayOfWeekTextColor(3),
+        "--dayOfWeek4": getDayOfWeekTextColor(4),
+        "--dayOfWeek5": getDayOfWeekTextColor(5),
+        "--dayOfWeek6": getDayOfWeekTextColor(6),
+
+        "--dayOfWeek0BG": getDayOfWeekBgColor(0),
+        "--dayOfWeek1BG": getDayOfWeekBgColor(1),
+        "--dayOfWeek2BG": getDayOfWeekBgColor(2),
+        "--dayOfWeek3BG": getDayOfWeekBgColor(3),
+        "--dayOfWeek4BG": getDayOfWeekBgColor(4),
+        "--dayOfWeek5BG": getDayOfWeekBgColor(5),
+        "--dayOfWeek6BG": getDayOfWeekBgColor(6),
       }}
     >
-      {weekDay1Color === undefined ? "v" : "s"}
       <div className="calendar">
         <MonthsGrid />
         <DaysGrid />

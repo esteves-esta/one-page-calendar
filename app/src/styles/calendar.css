@@ -6,7 +6,7 @@
 @import url("./only-h.css");
 @import url("./table.css");
 
-.calendar {  
+.calendar {
   min-height: 80vh;
   display: grid;
   grid-template-columns: .1fr 1fr 2fr .1fr;
@@ -84,8 +84,12 @@
 
 .week:hover,
 .day:hover {
-  box-shadow:
-    0px .3em 0px .05em blue;
+  box-shadow: inset .25em .3em 0px .05em #9999998e;
+}
+
+.square .week:hover,
+.square .day:hover {
+  box-shadow: .25em .3em 0px .05em #9999998e;
 }
 
 /* background: linear-gradient(0.25turn, hsla(198, 45%, 45%, 0.164), #ebf8e1, hsla(31, 91%, 60%, 0.267)); */

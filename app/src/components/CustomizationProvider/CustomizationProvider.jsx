@@ -14,13 +14,25 @@ function CustomizationProvider({ children }) {
   const [baseTextColor, setBaseTextColor] = React.useState("black");
   const [basePageBgColor, setBasePageBgColor] = React.useState("#f1f2f2");
 
-  const [weekDay0Color, setWeekDay0Color] = React.useState();
-  const [weekDay1Color, setWeekDay1Color] = React.useState();
-  const [weekDay2Color, setWeekDay2Color] = React.useState();
-  const [weekDay3Color, setWeekDay3Color] = React.useState();
-  const [weekDay4Color, setWeekDay4Color] = React.useState();
-  const [weekDay5Color, setWeekDay5Color] = React.useState();
-  const [weekDay6Color, setWeekDay6Color] = React.useState();
+  const [weekDaysColors, setWeekDaysColors] = React.useState({
+    0: "",
+    1: "",
+    2: "",
+    3: "",
+    4: "",
+    5: "",
+    6: "",
+  });
+
+  const [weekDaysToggle, setWeekDaysToggle] = React.useState({
+    0: false,
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+    5: false,
+    6: false,
+  });
 
   function toggleCustomization() {
     setShowCustomization(!showCustomization);
@@ -50,20 +62,10 @@ function CustomizationProvider({ children }) {
     baseTextColor,
     setBaseTextColor,
 
-    weekDay0Color,
-    setWeekDay0Color,
-    weekDay1Color,
-    setWeekDay1Color,
-    weekDay2Color,
-    setWeekDay2Color,
-    weekDay3Color,
-    setWeekDay3Color,
-    weekDay4Color,
-    setWeekDay4Color,
-    weekDay5Color,
-    setWeekDay5Color,
-    weekDay6Color,
-    setWeekDay6Color,
+    weekDaysColors,
+    setWeekDaysColors,
+    weekDaysToggle,
+    setWeekDaysToggle,
   };
 
   return (

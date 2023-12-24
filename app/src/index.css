@@ -38,6 +38,7 @@ header {
   --dayBg: paleturquoise;
   --weekBg: pink;
   --monthBg: paleturquoise;
+
   --dayOfWeek0: rosybrown;
   --dayOfWeek1: rosybrown;
   --dayOfWeek2: rosybrown;
@@ -45,4 +46,12 @@ header {
   --dayOfWeek4: rosybrown;
   --dayOfWeek5: rosybrown;
   --dayOfWeek6: rosybrown;
+
+  --dayOfWeek0BG: transparent;
+  --dayOfWeek1BG: transparent;
+  --dayOfWeek2BG: transparent;
+  --dayOfWeek3BG: transparent;
+  --dayOfWeek4BG: transparent;
+  --dayOfWeek5BG: transparent;
+  --dayOfWeek6BG: transparent;
 }

@@ -36,12 +36,14 @@ hover all day of week similar
   place-content: center;
   overflow: hidden;
   text-overflow: ellipsis;
-  word-break: keep-all;
-  white-space: nowrap;
+  /* word-break: keep-all; */
+  /* white-space: nowrap; */
+  text-align: center;
 }
 
 .dayOfWeek-0 {
   color: var(--dayOfWeek0);
+  background-color: var(--dayOfWeek0BG) !important;
   transition:
     color 750ms ease,
     background-color 750ms ease;
@@ -50,27 +52,67 @@ hover all day of week similar
 
 .dayOfWeek-1 {
   color: var(--dayOfWeek1);
-  /* background-color: var(--dayOfWeek1); */
+  background-color: var(--dayOfWeek1BG) !important;
 }
 
 .dayOfWeek-2 {
   color: var(--dayOfWeek2);
+  background-color: var(--dayOfWeek2BG) !important;
 }
 
 .dayOfWeek-3 {
   color: var(--dayOfWeek3);
+  background-color: var(--dayOfWeek3BG) !important;
 }
 
 .dayOfWeek-4 {
   color: var(--dayOfWeek4);
+  background-color: var(--dayOfWeek4BG) !important;
 }
 
 .dayOfWeek-5 {
   color: var(--dayOfWeek5);
+  background-color: var(--dayOfWeek5BG) !important;
 }
 
 .dayOfWeek-6 {
   color: var(--dayOfWeek6);
+  background-color: var(--dayOfWeek6BG) !important;
 }
 
+/* weekToogles */
 
+.weekToogleContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.weekToogle {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100px;
+}
+
+.weekToogle input {
+  width: 100%;
+  text-align: center;
+}
+
+.WeekCustomToggle {
+  border: 1px solid;
+  border-radius: 4px;
+  background-color: white;
+  padding: .3em .6em;
+}
+
+.WeekCustomToggle[data-state="off"] {
+  color: cadetblue;
+}
+
+.WeekCustomToggle[data-state="on"] {
+  color: white;
+  background-color: cadetblue;
+}
