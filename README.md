@@ -45,21 +45,19 @@
   - [x] change color of each day of the week for each day
 
 ## 🔨 To do
--- save all states with statesticky
--- responsiveness
--- transitions
---- color input https://courses.joshwcomeau.com/joy-of-react/02-state/06.02-state-exercises
-- [ ] Customizations
-    - [ ] font 
-      - [ ] size (slider)
-      - [ ] weight (toggle group multiple)
-    - [ ] - on square style- border -radius change -slider
-- month custom open input
-- day of week hover all
-- select day and year - and open toast saying if you want to save date
-   - if saved stays on the day a box-shadow with a color just for that month
-
+- [ ] css transitions
 - [ ] sounds - paper scratching, 
+
+- [ ] font 
+  - [ ] size (slider)
+  - [ ] weight (toggle group multiple)
+- [ ] - on square style- border -radius change -slider
+- [ ] stroke width
+- [ ] month custom open input
+- [ ] day of week hover - has line width 100%
+- [ ] select day and year - and open toast saying if you want to save date
+   - [ ] if saved stays on the day a box-shadow with a color just for that month
+
 
 ---
 

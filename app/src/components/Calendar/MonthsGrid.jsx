@@ -82,10 +82,6 @@ function MonthsGrid() {
   );
 
   React.useEffect(() => {
-    setmonthStyle("");
-  }, [calendarBaseStyle, setmonthStyle]);
-
-  React.useEffect(() => {
     setClasses(`${!monthstyle ? calendarBaseStyle : monthstyle} months`);
   }, [calendarBaseStyle, monthstyle, setClasses]);
 
