@@ -62,11 +62,18 @@
   cursor: pointer;
   border-radius: 100px;
   padding: .8em;
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
   transition: background 750ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  color: var(--pageBgColor);
+  filter: contrast(1%);
 }
 
 .btn-toogle:hover {
-  background-color: #efefef;
+  border-color: var(--pageBgColor);
+  filter: contrast(1%);
+
 }
 
 /* ------------------- */

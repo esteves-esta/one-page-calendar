@@ -1,39 +1,46 @@
 .container {
+  font-family: 'Noto Sans KR', sans-serif;
   position: absolute;
   z-index: 9;
-  background-color: rgb(222, 248, 248);
-  border: .3em solid turquoise;
+  background-color: #f1f2f2;
+  border: .21em solid #444;
   min-width: 300px;
   height: fit-content;
-  border-radius: 3px;
+  border-radius: 6px;
 }
 
 .content {
-  padding: 1em;
+  padding: 2em 1.5em;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 25px;
 }
 
 .handle {
   font-family: 'Noto Sans KR', sans-serif;
   width: 100%;
-  padding: .4em;
+  padding: .4em .7em;
   cursor: move;
-  background-color: turquoise;
+  background-color: #444;
   font-weight: 500;
   font-size: .9em;
   letter-spacing: .03em;
   display: flex;
   color: white;
   justify-content: space-between;
+  align-items: center;
 }
 
 .handle button {
-  background-color: transparent;
-  /* border: 2px solid white; */
   border: none;
   color: white;
-  background-color: turquoise;
+  background-color: #000;
   border-radius: 4px;
+  cursor: pointer;
+  padding: .3em;
+  transition: filter 750ms ease;
+}
+
+.handle button:hover {
+  filter: contrast(70%);
 }

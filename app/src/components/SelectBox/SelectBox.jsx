@@ -5,7 +5,7 @@ import { ChevronDown, ChevronUp, Dot } from "lucide-react";
 import * as Label from "@radix-ui/react-label";
 function SelectBox({ value, onValueChange, placeholder, options, label, id }) {
   return (
-    <Label.Root>
+    <Label.Root className={classes.label}>
       {label}
       <Select.Root value={value} onValueChange={onValueChange}>
         <Select.Trigger
@@ -13,8 +13,8 @@ function SelectBox({ value, onValueChange, placeholder, options, label, id }) {
           className={classes.SelectTrigger}
           aria-label={label}
         >
-          <Select.Value aria-label={value || placeholder}>
-            {value ? value : placeholder}
+          <Select.Value placeholder={placeholder}>
+            {value}
           </Select.Value>
           <Select.Icon className={classes.SelectIcon}>
             <ChevronDown />

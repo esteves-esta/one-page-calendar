@@ -9,6 +9,8 @@ import DraggableWindow from "../DraggableWindow";
 import { Pen } from "lucide-react";
 import SelectBox from "../SelectBox";
 import ToggleGroup from "../ToggleGroup";
+import * as Label from "@radix-ui/react-label";
+import useStickyState from "../../hooks/useStickyState";
 
 function MonthsGrid() {
   const {
@@ -22,13 +24,28 @@ function MonthsGrid() {
 
   const [monthCustomizationOpen, setMonthCustomizationOpen] =
     React.useState(false);
-  const [letterCase, setLetterCase] = React.useState("title");
+  const [letterCase, setLetterCase] = useStickyState("title");
 
-  const [monthstyle, setmonthStyle] = React.useState();
-  const [monthLang, setmonthLang] = React.useState(baseLang);
-  const [classes, setClasses] = React.useState("months");
-  const [monthAbbr, setMonthAbbr] = React.useState(monthLangAbbrs.ko);
-  const [monthCharNum, setMonthCharNum] = React.useState(1);
+  const [monthstyle, setmonthStyle] = useStickyState(
+    "",
+    "one-page-cal-monthstyle"
+  );
+  const [monthLang, setmonthLang] = useStickyState(
+    baseLang,
+    "one-page-cal-monthlang"
+  );
+  const [classes, setClasses] = useStickyState(
+    "months",
+    "one-page-cal-monthclass"
+  );
+  const [monthAbbr, setMonthAbbr] = useStickyState(
+    monthLangAbbrs.ko,
+    "one-page-cal-monthabbr"
+  );
+  const [monthCharNum, setMonthCharNum] = useStickyState(
+    1,
+    "one-page-cal-monthcharnum"
+  );
 
   React.useEffect(() => {
     setMonthAbbr(monthLangAbbrs[baseLang]);
@@ -36,7 +53,7 @@ function MonthsGrid() {
     if (["pt", "en"].includes(baseLang)) {
       setMonthCharNum(3);
     }
-  }, [baseLang]);
+  }, [baseLang, setMonthAbbr, setMonthCharNum]);
 
   function toggleCustomization() {
     setMonthCustomizationOpen(!monthCustomizationOpen);
@@ -66,11 +83,11 @@ function MonthsGrid() {
 
   React.useEffect(() => {
     setmonthStyle("");
-  }, [calendarBaseStyle]);
+  }, [calendarBaseStyle, setmonthStyle]);
 
   React.useEffect(() => {
     setClasses(`${!monthstyle ? calendarBaseStyle : monthstyle} months`);
-  }, [calendarBaseStyle,monthstyle]);
+  }, [calendarBaseStyle, monthstyle, setClasses]);
 
   React.useEffect(() => {
     setClasses((currentClasses) => {
@@ -79,29 +96,20 @@ function MonthsGrid() {
       classess = classess.replace(/title/g, "");
       return `${classess} ${letterCase}`;
     });
-  }, [letterCase]);
+  }, [letterCase, setClasses]);
 
   React.useEffect(() => {
     setmonthLang(baseLang);
     setMonthAbbr(monthLangAbbrs[baseLang]);
-    onLangChangeAdjustCharNum(baseLang);
-  }, [baseLang]);
+  }, [baseLang, setMonthAbbr, setmonthLang]);
 
   React.useEffect(() => {
     setMonthAbbr(monthLangAbbrs[monthLang]);
-    onLangChangeAdjustCharNum(monthLang);
-  }, [monthLang]);
+  }, [monthLang, setMonthAbbr]);
 
   React.useEffect(() => {
     setMonthsYear(getAllMonthsFirstDayOfWeek(year));
-  }, [year]);
-
-  function onLangChangeAdjustCharNum(lang) {
-    if (lang === "jp") setMonthCharNum(2);
-    if (["pt", "en"].includes(lang)) {
-      setMonthCharNum(3);
-    }
-  }
+  }, [setMonthsYear, year]);
 
   return (
     <>
@@ -134,40 +142,52 @@ function MonthsGrid() {
           onClose={toggleCustomization}
           windowLabel="Month customization"
         >
-          <SelectBox
-            id="lang"
-            value={monthLang}
-            onValueChange={setmonthLang}
-            placeholder="Choose a language"
-            label="Language"
-            options={langs}
-          />
+          <div className="row">
+            <label className="rowLabel">Config</label>
+            <SelectBox
+              id="lang"
+              value={monthLang}
+              onValueChange={setmonthLang}
+              placeholder="Choose language"
+              label="Language"
+              options={langs}
+            />
 
-          <SelectBox
-            id="style"
-            value={monthstyle}
-            onValueChange={setmonthStyle}
-            placeholder="Choose calendar style"
-            label="Styles"
-            options={calendarStyles}
-          />
+            <SelectBox
+              id="style"
+              value={monthstyle}
+              onValueChange={setmonthStyle}
+              placeholder="Choose style"
+              label="Style"
+              options={calendarStyles}
+            />
+          </div>
 
-          <ToggleGroup
-            ariaLabel="Number of characters show"
-            defaultValue={3}
-            disabled={false}
-            value={monthCharNum}
-            onValueChange={setMonthCharNum}
-            options={[1, 2, 3]}
-          />
-          <ToggleGroup
-            ariaLabel="Case of letter"
-            defaultValue={3}
-            disabled={false}
-            value={letterCase}
-            onValueChange={setLetterCase}
-            options={["lower", "upper", "title"]}
-          />
+          <div className="row">
+            <label className="rowLabel">Month Label</label>
+            <Label.Root className="field">
+              Nº Character
+              <ToggleGroup
+                ariaLabel="Number of characters show"
+                defaultValue={3}
+                disabled={false}
+                value={monthCharNum}
+                onValueChange={setMonthCharNum}
+                options={[1, 2, 3]}
+              />
+            </Label.Root>
+            <Label.Root className="field">
+              LetterCase
+              <ToggleGroup
+                ariaLabel="Case of letter"
+                defaultValue={3}
+                disabled={false}
+                value={letterCase}
+                onValueChange={setLetterCase}
+                options={["lower", "upper", "title"]}
+              />
+            </Label.Root>
+          </div>
         </DraggableWindow>
       )}
     </>

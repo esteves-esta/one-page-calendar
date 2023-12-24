@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group";
+import classes from "./styles.module.css";
 
 function ToggleGroup({
   ariaLabel,
@@ -9,14 +10,13 @@ function ToggleGroup({
   onValueChange,
   options,
 }) {
-
   function handleValueChange(value) {
-    if(value) onValueChange(value)
+    if (value) onValueChange(value);
   }
 
   return (
     <ToggleGroupPrimitive.Root
-      className="ToggleGroup"
+      className={classes.ToggleGroup}
       type="single"
       defaultValue={defaultValue}
       aria-label={ariaLabel}
@@ -26,7 +26,7 @@ function ToggleGroup({
     >
       {options.map((option) => (
         <ToggleGroupPrimitive.Item
-          className="ToggleGroupItem"
+          className={classes.ToggleGroupItem}
           key={option}
           value={option}
           aria-label={option}

@@ -4,6 +4,7 @@ import DraggableWindow from "../DraggableWindow";
 import { CustomizationContext } from "../CustomizationProvider";
 import { Pen } from "lucide-react";
 import SelectBox from "../SelectBox";
+import useStickyState from "../../hooks/useStickyState";
 
 function DaysGrid() {
   const [days, setDays] = React.useState([]);
@@ -34,7 +35,10 @@ function DaysGrid() {
   const { showCustomization, calendarBaseStyle, calendarStyles } =
     React.useContext(CustomizationContext);
 
-  const [daystyle, setDayStyle] = React.useState();
+  const [daystyle, setDayStyle] = useStickyState(
+    "",
+    "one-page-cal-custom-daystyle"
+  );
   const [classes, setClasses] = React.useState("days");
   const [customizationOpen, setCustomizationOpen] = React.useState(false);
 
@@ -44,7 +48,7 @@ function DaysGrid() {
 
   React.useEffect(() => {
     setDayStyle("");
-  }, [calendarBaseStyle]);
+  }, [calendarBaseStyle, setDayStyle]);
 
   React.useEffect(() => {
     setClasses(`${!daystyle ? calendarBaseStyle : daystyle} days`);

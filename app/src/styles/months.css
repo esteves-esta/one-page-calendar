@@ -7,9 +7,17 @@
   align-items: end;
 
   display: grid;
-  grid-template-columns: repeat(7, minmax(50px, 1fr));
+  grid-template-columns: repeat(7, minmax(25px, 1fr));
   grid-template-areas:
     'm1 m2 m3 m4 m5';
+  font-size: .8em;
+}
+
+@media (min-width: 600px) {
+  .months {
+    grid-template-columns: repeat(7, minmax(50px, 1fr));
+    font-size: 1em;
+  }
 }
 
 .month {

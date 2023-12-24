@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { Pen } from "lucide-react";
 import DaysGrid from "./DaysGrid";
 import MonthsGrid from "./MonthsGrid";
 import WeeksGrid from "./WeeksGrid";
 import { CustomizationContext } from "../CustomizationProvider";
+import useMatchMedia from "../../hooks/useMatchMedia";
 
 function Calendar() {
   const {
@@ -26,13 +26,15 @@ function Calendar() {
     return weekDaysToggle[dayOfWeek] ? weekDaysColors[dayOfWeek] : baseBgColor;
   }
 
+  const isNarrow = useMatchMedia(600);
+
   return (
     <main
       onDrag={(event) => event.preventDefault()}
       // className={calendarBaseStyle}
       style={{
         "--textColor": baseTextColor,
-        "--stroke-width": "2px",
+        "--stroke-width": isNarrow ? "2px" : "1px",
 
         "--dayStroke": baseStrokeColor,
         "--weekStroke": baseStrokeColor,

@@ -9,6 +9,8 @@ import SelectBox from "../SelectBox";
 import ToggleGroup from "../ToggleGroup";
 import * as Toggle from "@radix-ui/react-toggle";
 import { range } from "../../helpers/range";
+import * as Label from "@radix-ui/react-label";
+import useStickyState from "../../hooks/useStickyState";
 
 function WeeksGrid() {
   const { showCustomization, baseLang, calendarBaseStyle } =
@@ -67,20 +69,35 @@ function WeeksGrid() {
   ]);
 
   const [weekstyle, setWeekStyle] = React.useState();
-  const [weekLang, setWeekLang] = React.useState(baseLang);
-  const [classes, setClasses] = React.useState("weeks");
+  const [weekLang, setWeekLang] = useStickyState(
+    baseLang,
+    "one-page-cal-custom-weeklang"
+  );
+  const [classes, setClasses] = useStickyState(
+    "weeks title",
+    "one-page-cal-custom-weekclass"
+  );
   const [customizationOpen, setCustomizationOpen] = React.useState(false);
-  const [weekAbbr, setWeekAbbr] = React.useState(weekLangAbbrs.ko);
-  const [weekAbbrCustom, setWeekAbbrCustom] = React.useState({
-    0: "",
-    1: "",
-    2: "",
-    3: "",
-    4: "",
-    5: "",
-    6: "",
-  });
-  const [weekCharNum, setWeekCharNum] = React.useState(1);
+  const [weekAbbr, setWeekAbbr] = useStickyState(
+    weekLangAbbrs.ko,
+    "one-page-cal-weekabbr"
+  );
+  const [weekAbbrCustom, setWeekAbbrCustom] = useStickyState(
+    {
+      0: "",
+      1: "",
+      2: "",
+      3: "",
+      4: "",
+      5: "",
+      6: "",
+    },
+    "one-page-cal-custom-weekbabbr"
+  );
+  const [weekCharNum, setWeekCharNum] = useStickyState(
+    3,
+    "one-page-cal-custom-weekcharnum"
+  );
   const [letterCase, setLetterCase] = React.useState("title");
 
   function toggleCustomization() {
@@ -92,17 +109,10 @@ function WeeksGrid() {
   }, [calendarBaseStyle]);
 
   React.useEffect(() => {
-    setClasses(`${!weekstyle ? calendarBaseStyle : weekstyle} weeks`);
-  }, [calendarBaseStyle, weekstyle]);
-
-  React.useEffect(() => {
-    setClasses((currentClasses) => {
-      let classess = currentClasses.replace(/lower/g, "");
-      classess = classess.replace(/upper/g, "");
-      classess = classess.replace(/title/g, "");
-      return `${classess} ${letterCase}`;
-    });
-  }, [letterCase]);
+    setClasses(
+      `${!weekstyle ? calendarBaseStyle : weekstyle} weeks  ${letterCase}`
+    );
+  }, [calendarBaseStyle, weekstyle, letterCase]);
 
   React.useEffect(() => {
     let custom = {};
@@ -116,8 +126,8 @@ function WeeksGrid() {
       ...custom,
     });
 
-    onLangChangeAdjustCharNum(baseLang);
-    onLangChangeAdjustCharNum(weekLang);
+    // onLangChangeAdjustCharNum(baseLang);
+    // onLangChangeAdjustCharNum(weekLang);
   }, [baseLang, weekAbbrCustom, weekLang]);
 
   function onLangChangeAdjustCharNum(lang) {
@@ -203,57 +213,71 @@ function WeekCustomization({
       onClose={toggleCustomization}
       windowLabel="Week customization"
     >
-      <SelectBox
-        id="lang"
-        value={weekLang}
-        onValueChange={setWeekLang}
-        placeholder="Choose a language"
-        label="Language"
-        options={langs}
-      />
-      <SelectBox
-        id="style"
-        value={weekstyle}
-        onValueChange={setWeekStyle}
-        placeholder="Choose calendar style"
-        label="Styles"
-        options={calendarStyles}
-      />
-      <div>
-        <ToggleGroup
-          ariaLabel="Number of characters show"
-          defaultValue={3}
-          disabled={false}
-          value={weekCharNum}
-          onValueChange={setWeekCharNum}
-          options={[1, 2, 3]}
+      <div className="row">
+        <label className="rowLabel">Config</label>
+        <SelectBox
+          id="lang"
+          value={weekLang}
+          onValueChange={setWeekLang}
+          placeholder="Choose language"
+          label="Language"
+          options={langs}
         />
-        <ToggleGroup
-          ariaLabel="Case of letter"
-          defaultValue={3}
-          disabled={false}
-          value={letterCase}
-          onValueChange={setLetterCase}
-          options={["lower", "upper", "title"]}
+        <SelectBox
+          id="style"
+          value={weekstyle}
+          onValueChange={setWeekStyle}
+          placeholder="Choose style"
+          label="Styles"
+          options={calendarStyles}
         />
       </div>
-      <DayOfWeekCustoms
-        weekAbbr={weekAbbr}
-        inputValues={weekAbbrCustom}
-        pressedValues={weekDaysToggle}
-        onBgPress={(value, week) => {
-          setWeekDaysToggle({
-            ...weekDaysToggle,
-            [week]: value,
-          });
-        }}
-        onAbbrChange={(value, week) => {
-          setWeekAbbrCustom({
-            ...weekAbbrCustom,
-            [week]: value,
-          });
-        }}
-      />
+      <div className="row">
+        <label className="rowLabel">Config</label>
+        <Label.Root className="field">
+          Nº Character
+          <ToggleGroup
+            ariaLabel="Number of characters show"
+            defaultValue={3}
+            disabled={false}
+            value={weekCharNum}
+            onValueChange={setWeekCharNum}
+            options={[1, 2, 3]}
+          />{" "}
+        </Label.Root>
+        <Label.Root className="field">
+          LetterCase
+          <ToggleGroup
+            ariaLabel="Case of letter"
+            defaultValue={3}
+            disabled={false}
+            value={letterCase}
+            onValueChange={setLetterCase}
+            options={["lower", "upper", "title"]}
+          />
+        </Label.Root>
+      </div>
+      
+      <div className="row">
+        <label className="rowLabel">Month Label</label>
+        <DayOfWeekCustoms
+          weekAbbr={weekAbbr}
+          inputValues={weekAbbrCustom}
+          pressedValues={weekDaysToggle}
+          onBgPress={(value, week) => {
+            setWeekDaysToggle({
+              ...weekDaysToggle,
+              [week]: value,
+            });
+          }}
+          onAbbrChange={(value, week) => {
+            setWeekAbbrCustom({
+              ...weekAbbrCustom,
+              [week]: value,
+            });
+          }}
+        />
+      </div>
     </DraggableWindow>
   );
 }
@@ -270,7 +294,7 @@ function DayOfWeekCustoms({
 
   return (
     <div className="weekToogleContainer">
-      {range(6).map((week) => (
+      {range(7).map((week) => (
         <div className="weekToogle" key={week}>
           <Toggle.Root
             onPressedChange={(value) => onBgPress(value, week)}
