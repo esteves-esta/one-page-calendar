@@ -1,8 +1,11 @@
-.label {
+.container {
   display: flex;
   flex-direction: column;
   gap: 5px;
   width: 100%;
+}
+
+.label {
   color: #444 !important;
 }
 
@@ -10,7 +13,9 @@
   font-family: 'Noto Sans', sans-serif !important;
   text-transform: capitalize;
   color: #444 !important;
-  border: 1px solid rgba(68, 68, 68, 0.356);
+  background-color: transparent;
+  border: 1px solid ;
+  border-color: rgba(68, 68, 68, 0.3);
   padding: .8em;
   height: 48px;
   cursor: pointer;
@@ -35,14 +40,13 @@
   max-height: 200px;
   background-color: white;
   border: 1px solid rgba(68, 68, 68, 0.356);
-}
-
-.SelectTrigger:hover,
-.SelectTrigger:focus {
-  background-color: rgba(68, 68, 68, 0.04);
+  will-change: contents;
+  transition:
+    border-color 750ms ease;
 }
 
 .SelectTrigger:focus {
+  border-color: rgba(68, 68, 68, 0.9);
   outline: 2px solid rgba(68, 68, 68, 0.356);
   --box-shadow-focus: 0px 0px 3px 1px var(--color-text);
   box-shadow: var(--box-shadow-focus);

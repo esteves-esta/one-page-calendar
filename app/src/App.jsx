@@ -48,7 +48,7 @@ function App() {
     const light = values[2].replace("%", "");
 
     if (opacity)
-      return `hsla(${values[0]},${values[1]},${light >= 80 ? 0 : 100}%,.2)`;
+      return `hsla(${values[0]},${values[1]},${light >= 80 ? 0 : 100}%,.1)`;
 
     return `hsl(${values[0]},${values[1]},${light >= 80 ? 0 : 100}%)`;
   }

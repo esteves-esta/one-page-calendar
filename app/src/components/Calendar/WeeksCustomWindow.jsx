@@ -12,12 +12,8 @@ import ColorInput from "../ColorInput";
 import { WeekContext } from "../WeekProvider";
 
 function WeekCustomization() {
-  const {
-    langs,
-    calendarStyles,
-    weekDaysToggle,
-    setWeekDaysToggle,
-  } = React.useContext(CustomizationContext);
+  const { langs, calendarStyles, weekDaysToggle, setWeekDaysToggle } =
+    React.useContext(CustomizationContext);
 
   const {
     weekCharNum,
@@ -36,7 +32,6 @@ function WeekCustomization() {
     weekBgColor,
     setWeekBgColor,
   } = React.useContext(WeekContext);
-
 
   return (
     <DraggableWindow
@@ -69,8 +64,8 @@ function WeekCustomization() {
       </div>
       <div className="row">
         <label className="rowLabel">Config</label>
-        <Label.Root className="field">
-          Nº Character
+        <div className="field">
+          <Label.Root>Nº Character </Label.Root>
           <ToggleGroup
             ariaLabel="Number of characters show"
             defaultValue={3}
@@ -78,10 +73,10 @@ function WeekCustomization() {
             value={weekCharNum}
             onValueChange={setWeekCharNum}
             options={[1, 2, 3]}
-          />{" "}
-        </Label.Root>
-        <Label.Root className="field">
-          LetterCase
+          />
+        </div>
+        <div className="field">
+          <Label.Root className="field">LetterCase </Label.Root>
           <ToggleGroup
             ariaLabel="Case of letter"
             defaultValue={3}
@@ -90,7 +85,7 @@ function WeekCustomization() {
             onValueChange={setLetterCase}
             options={["lower", "upper", "title"]}
           />
-        </Label.Root>
+        </div>
       </div>
 
       <div className="row">

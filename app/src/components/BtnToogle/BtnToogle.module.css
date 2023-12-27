@@ -10,7 +10,7 @@
     filter 750ms ease,
     border-color 750ms ease;
   border-style: solid;
-  border-width: 1px;
+  border-width: 2px;
   border-color: var(--uiTextColorOpacity);
 }
 

@@ -4,13 +4,14 @@ import React from "react";
 import { CustomizationContext } from "../CustomizationProvider";
 import { MonthsContext } from "../MonthsProvider";
 import DraggableWindow from "../DraggableWindow";
+import { monthLangAbbrs } from "./constants";
 import SelectBox from "../SelectBox";
 import ToggleGroup from "../ToggleGroup";
 import * as Label from "@radix-ui/react-label";
 import ColorInput from "../ColorInput";
 
 function MonthsCustomWindow() {
-  const { langs, calendarStyles } = React.useContext(CustomizationContext);
+  const { calendarStyles } = React.useContext(CustomizationContext);
 
   const {
     toggleCustomization,
@@ -43,7 +44,7 @@ function MonthsCustomWindow() {
           onValueChange={setmonthLang}
           placeholder="Choose language"
           label="Language"
-          options={langs}
+          options={Object.keys(monthLangAbbrs)}
         />
 
         <SelectBox
@@ -63,8 +64,8 @@ function MonthsCustomWindow() {
 
       <div className="row">
         <label className="rowLabel">Month Label</label>
-        <Label.Root className="field">
-          Nº Character
+        <div className="field">
+          <Label.Root>Nº Character</Label.Root>
           <ToggleGroup
             ariaLabel="Number of characters show"
             defaultValue={3}
@@ -73,9 +74,9 @@ function MonthsCustomWindow() {
             onValueChange={setMonthCharNum}
             options={[1, 2, 3]}
           />
-        </Label.Root>
-        <Label.Root className="field">
-          LetterCase
+        </div>
+        <div className="field">
+          <Label.Root className="field">LetterCase </Label.Root>
           <ToggleGroup
             ariaLabel="Case of letter"
             defaultValue={3}
@@ -84,7 +85,7 @@ function MonthsCustomWindow() {
             onValueChange={setLetterCase}
             options={["lower", "upper", "title"]}
           />
-        </Label.Root>
+        </div>
       </div>
     </DraggableWindow>
   );

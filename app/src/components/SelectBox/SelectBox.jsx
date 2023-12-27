@@ -5,17 +5,15 @@ import { ChevronDown, ChevronUp, Dot } from "lucide-react";
 import * as Label from "@radix-ui/react-label";
 function SelectBox({ value, onValueChange, placeholder, options, label, id }) {
   return (
-    <Label.Root className={classes.label}>
-      {label}
+    <div className={classes.container}>
+      <Label.Root className={classes.label}>{label}</Label.Root>
       <Select.Root value={value} onValueChange={onValueChange}>
         <Select.Trigger
           id={id}
           className={classes.SelectTrigger}
           aria-label={label}
         >
-          <Select.Value placeholder={placeholder}>
-            {value}
-          </Select.Value>
+          <Select.Value placeholder={placeholder}>{value}</Select.Value>
           <Select.Icon className={classes.SelectIcon}>
             <ChevronDown />
           </Select.Icon>
@@ -48,7 +46,7 @@ function SelectBox({ value, onValueChange, placeholder, options, label, id }) {
           </Select.Content>
         </Select.Portal>
       </Select.Root>
-    </Label.Root>
+    </div>
   );
 }
 

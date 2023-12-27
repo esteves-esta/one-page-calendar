@@ -46,5 +46,5 @@
 }
 
 .handle button:hover {
-  filter: contrast(70%);
+  filter: contrast(60%);
 }

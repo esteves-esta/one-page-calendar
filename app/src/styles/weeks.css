@@ -108,9 +108,17 @@ hover all day of week similar
   
 }
 
+.weekToogle  input[type="text"]:focus {
+  border-color: rgba(68, 68, 68, 0.9);
+  outline: 2px solid rgba(68, 68, 68, 0.356);
+  --box-shadow-focus: 0px 0px 3px 1px var(--color-text);
+  box-shadow: var(--box-shadow-focus);
+}
+
 .weekToogle input[type="text"] {
   width: 100%;
   text-align: center;
+  border: 1px solid rgba(68, 68, 68, 0.3);
 }
 
 .WeekCustomToggle {
@@ -118,6 +126,13 @@ hover all day of week similar
   border-radius: 4px;
   background-color: white;
   padding: .3em .6em;
+}
+
+.WeekCustomToggle:focus {
+  border-color: rgba(68, 68, 68, 0.9);
+  outline: 2px solid rgba(68, 68, 68, 0.356);
+  --box-shadow-focus: 0px 0px 3px 1px var(--color-text);
+  box-shadow: var(--box-shadow-focus);
 }
 
 .WeekCustomToggle[data-state="off"] {
