@@ -20,31 +20,31 @@ function CustomizationProvider({ children }) {
     "one-page-cal-custom-baselang"
   );
   const [baseStrokeColor, setBaseStrokeColor] = useStickyState(
-    "gray",
+    "hsla(0,0%,70%,1)",
     "one-page-cal-custom-strokecolor"
   );
   const [baseBgColor, setBaseBgColor] = useStickyState(
-    "transparent",
+    "hsla(239,240%,240%,0)",
     "one-page-cal-custom-bgcolor"
   );
   const [baseTextColor, setBaseTextColor] = useStickyState(
-    "black",
+    "hsla(0,0%,0%,1)",
     "one-page-cal-custom-textcolor"
   );
   const [basePageBgColor, setBasePageBgColor] = useStickyState(
-    "#f1f2f2",
+    "hsla(180,4%,95%,1)",
     "one-page-cal-custom-pbbgcolor"
   );
 
   const [weekDaysColors, setWeekDaysColors] = useStickyState(
     {
-      0: "#000000",
-      1: "#222222",
-      2: "#444444",
-      3: "#666666",
-      4: "#888888",
-      5: "#AAAAAA",
-      6: "#bbbbbb",
+      0: "hsla(0,0%,0%,1)",
+      1: "hsla(0,0%,20%,1)",
+      2: "hsla(0,0%,40%,1)",
+      3: "hsla(0,0%,60%,1)",
+      4: "hsla(0,0%,65%,1)",
+      5: "hsla(0,0%,75%,1)",
+      6: "hsla(0,0%,80%,1)",
     },
     "one-page-cal-custom-weekdaycolor"
   );

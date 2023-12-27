@@ -9,7 +9,7 @@
 .calendar {
   min-height: 80vh;
   display: grid;
-  grid-template-columns: .1fr 1fr 2fr .1fr;
+  grid-template-columns: .6fr 2fr;
   grid-template-rows: 1fr 5fr;
 }
 
@@ -28,51 +28,47 @@
 }
 
 
-
-.daytoogle,
-.weektoogle,
-.monthtoogle {
-  /* border: 1px solid; */
-  display: grid;
-  place-content: center;
-  padding: .5em;
-}
-
 .daytoogle {
-  grid-row: 2 / 3;
-  grid-column: 1 / 2;
+  position: absolute;
+  transform: translate(-25px, -15px);
 }
 
 .weektoogle {
-  grid-row: 2 / 3;
-  grid-column: 4 / -1;
+  position: absolute;
+  right: 0px;
+  transform: translate(40px, 10px);
+}
+
+.weeks,
+.days,
+.months {
+  position: relative;
 }
 
 .monthtoogle {
-  grid-row: 1 / 2;
-  grid-column: 2 / 3;
-  align-self: flex-end;
-  justify-content: end !important;
+  position: absolute;
+  transform: translate(-40px, -30px);
 }
 
 .btn-toogle {
-  min-width: 50px;
-  background-color: transparent;
+  /* min-width: 50px; */
+  background-color: var(--pageBgColor);
   border: none;
   cursor: pointer;
   border-radius: 100px;
   padding: .8em;
   border-width: 2px;
   border-style: solid;
-  border-color: transparent;
+  /* border-color: transparent; */
   transition: background 750ms cubic-bezier(0.165, 0.84, 0.44, 1);
-  color: var(--pageBgColor);
-  filter: contrast(1%);
+  color: var(--pageStroke);
+  border-color: var(--strokeColor);
+  /* filter: contrast(1%); */
 }
 
 .btn-toogle:hover {
   border-color: var(--pageBgColor);
-  filter: contrast(1%);
+  /* filter: contrast(1%); */
 
 }
 

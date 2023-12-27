@@ -1,10 +1,11 @@
 import React from "react";
 import Calendar from "./components/Calendar";
-import { Pen, X } from "lucide-react";
+import { Pen } from "lucide-react";
 import SelectBox from "./components/SelectBox";
 import { CustomizationContext } from "./components/CustomizationProvider";
 import DraggableWindow from "./components/DraggableWindow";
 import * as Label from "@radix-ui/react-label";
+import ColorInput from "./components/ColorInput";
 
 function App() {
   const {
@@ -98,19 +99,17 @@ function App() {
 
             <Label.Root className="field">
               Stroke
-              <input
-                type="color"
+              <ColorInput
                 value={baseStrokeColor}
-                onChange={(event) => setBaseStrokeColor(event.target.value)}
+                onChange={setBaseStrokeColor}
               />
             </Label.Root>
 
             <Label.Root className="field">
               Background
-              <input
-                type="color"
+              <ColorInput
                 value={basePageBgColor}
-                onChange={(event) => setBasePageBgColor(event.target.value)}
+                onChange={setBasePageBgColor}
               />
             </Label.Root>
           </div>
@@ -118,29 +117,12 @@ function App() {
             <label className="rowLabel">Calendar cells</label>
             <Label.Root className="field">
               Background
-              <div className="baseCellField">
-                <button
-                  onClick={() => setBaseBgColor("transparent")}
-                  className="baseCellTransparentBtn"
-                  aria-label="transparent"
-                >
-                  <X size={20} />
-                </button>
-                <input
-                  type="color"
-                  value={baseBgColor}
-                  onChange={(event) => setBaseBgColor(event.target.value)}
-                />
-              </div>
+              <ColorInput value={baseBgColor} onChange={setBaseBgColor} />
             </Label.Root>
 
             <Label.Root className="field">
               Text
-              <input
-                type="color"
-                value={baseTextColor}
-                onChange={(event) => setBaseTextColor(event.target.value)}
-              />
+              <ColorInput value={baseTextColor} onChange={setBaseTextColor} />
             </Label.Root>
           </div>
         </DraggableWindow>

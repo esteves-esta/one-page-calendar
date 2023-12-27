@@ -66,16 +66,17 @@ function DaysGrid() {
             ))}
           </div>
         ))}
-      </div>
 
-      {showCustomization && (
-        <div className="daytoogle">
-          <button onClick={toggleCustomization} className="btn-toogle">
+        {showCustomization && (
+          <button
+            onClick={toggleCustomization}
+            className="daytoogle btn-toogle"
+          >
             <Pen size={20} />
           </button>
-        </div>
-      )}
-
+        )}
+      </div>
+      
       {customizationOpen && (
         <DraggableWindow
           defaultPosition={{ x: 50, y: 300 }}

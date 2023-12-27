@@ -2,7 +2,7 @@
 .weeks {
   /* padding: .5em; */
   grid-row: 2 / 3;
-  grid-column: 3/ 4;
+  grid-column: 2/ 3;
 
   display: grid;
   grid-template-columns: repeat(7, minmax(25px, 1fr));
@@ -95,18 +95,20 @@ hover all day of week similar
   flex-direction: row;
   flex-wrap: wrap; */
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
+  row-gap: 20px;
 }
 
 .weekToogle {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  width: 100px;
+  gap: 5px;
+  width: 120px;
+  
 }
 
-.weekToogle input {
+.weekToogle input[type="text"] {
   width: 100%;
   text-align: center;
 }

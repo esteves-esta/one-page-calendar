@@ -11,6 +11,7 @@ import * as Toggle from "@radix-ui/react-toggle";
 import { range } from "../../helpers/range";
 import * as Label from "@radix-ui/react-label";
 import useStickyState from "../../hooks/useStickyState";
+import ColorInput from "../ColorInput";
 
 function WeeksGrid() {
   const { showCustomization, baseLang, calendarBaseStyle } =
@@ -112,14 +113,14 @@ function WeeksGrid() {
     setClasses(
       `${!weekstyle ? calendarBaseStyle : weekstyle} weeks  ${letterCase}`
     );
-  }, [calendarBaseStyle, weekstyle, letterCase]);
+  }, [calendarBaseStyle, weekstyle, letterCase, setClasses]);
 
   React.useEffect(() => {
     let custom = {};
     Object.keys(weekAbbrCustom).forEach((week) => {
       if (weekAbbrCustom[week] !== "") custom[week] = weekAbbrCustom[week];
     });
-    console.log(custom);
+
     setWeekAbbr({
       ...weekLangAbbrs[baseLang],
       ...weekLangAbbrs[weekLang],
@@ -128,7 +129,7 @@ function WeeksGrid() {
 
     // onLangChangeAdjustCharNum(baseLang);
     // onLangChangeAdjustCharNum(weekLang);
-  }, [baseLang, weekAbbrCustom, weekLang]);
+  }, [baseLang, setWeekAbbr, weekAbbrCustom, weekLang]);
 
   function onLangChangeAdjustCharNum(lang) {
     if (lang === "jp") setWeekCharNum(2);
@@ -155,16 +156,16 @@ function WeeksGrid() {
             {getDayOfWeek(week)}
           </div>
         ))}
-      </div>
 
-      {showCustomization && (
-        <div className="weektoogle">
-          <button onClick={toggleCustomization} className="btn-toogle">
+        {showCustomization && (
+          <button
+            onClick={toggleCustomization}
+            className="weektoogle btn-toogle"
+          >
             <Pen size={20} />
           </button>
-        </div>
-      )}
-
+        )}
+      </div>
       {customizationOpen && (
         <WeekCustomization
           weekCharNum={weekCharNum}
@@ -202,14 +203,14 @@ function WeekCustomization({
   const {
     langs,
     calendarStyles,
-
+    weekDaysColors,
     weekDaysToggle,
     setWeekDaysToggle,
   } = React.useContext(CustomizationContext);
 
   return (
     <DraggableWindow
-      defaultPosition={{ x: 100, y: 400 }}
+      defaultPosition={{ x: 100, y: 10 }}
       onClose={toggleCustomization}
       windowLabel="Week customization"
     >
@@ -257,7 +258,7 @@ function WeekCustomization({
           />
         </Label.Root>
       </div>
-      
+
       <div className="row">
         <label className="rowLabel">Month Label</label>
         <DayOfWeekCustoms
@@ -292,6 +293,19 @@ function DayOfWeekCustoms({
   const { weekDaysColors, setWeekDaysColors } =
     React.useContext(CustomizationContext);
 
+  const changeColorWeek = React.useCallback(
+    (value, week) => {
+      // console.log({ value });
+      setWeekDaysColors((colors) => {
+        return {
+          ...colors,
+          [week]: value,
+        };
+      });
+    },
+    [setWeekDaysColors]
+  );
+
   return (
     <div className="weekToogleContainer">
       {range(7).map((week) => (
@@ -314,7 +328,11 @@ function DayOfWeekCustoms({
               onAbbrChange(value, week);
             }}
           />
-          <input
+          <ColorInput
+            value={weekDaysColors[week]}
+            onChange={(value) => changeColorWeek(value, week)}
+          />
+          {/* <input
             type="color"
             value={weekDaysColors[week]}
             onChange={(event) => {
@@ -323,7 +341,7 @@ function DayOfWeekCustoms({
                 [week]: event.target.value,
               });
             }}
-          />
+          /> */}
         </div>
       ))}
     </div>

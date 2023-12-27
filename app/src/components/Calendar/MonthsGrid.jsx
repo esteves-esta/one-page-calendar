@@ -122,16 +122,16 @@ function MonthsGrid() {
             ))}
           </div>
         ))}
-      </div>
 
-      {showCustomization && (
-        <div className="monthtoogle">
-          <button onClick={toggleCustomization} className="btn-toogle">
+        {showCustomization && (
+          <button
+            onClick={toggleCustomization}
+            className="monthtoogle btn-toogle"
+          >
             <Pen size={20} />
           </button>
-        </div>
-      )}
-
+        )}
+      </div>
       {monthCustomizationOpen && (
         <DraggableWindow
           defaultPosition={{ x: 100, y: 100 }}
