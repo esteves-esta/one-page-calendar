@@ -7,6 +7,7 @@ import DraggableWindow from "../DraggableWindow";
 import SelectBox from "../SelectBox";
 import ToggleGroup from "../ToggleGroup";
 import * as Label from "@radix-ui/react-label";
+import ColorInput from "../ColorInput";
 
 function MonthsCustomWindow() {
   const { langs, calendarStyles } = React.useContext(CustomizationContext);
@@ -24,6 +25,8 @@ function MonthsCustomWindow() {
 
     letterCase,
     setLetterCase,
+    monthBgColor,
+    setMonthBgColor,
   } = React.useContext(MonthsContext);
 
   return (
@@ -51,6 +54,11 @@ function MonthsCustomWindow() {
           label="Style"
           options={calendarStyles}
         />
+
+        <Label.Root className="field">
+          Background
+          <ColorInput value={monthBgColor} onChange={setMonthBgColor} />
+        </Label.Root>
       </div>
 
       <div className="row">

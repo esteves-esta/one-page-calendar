@@ -5,6 +5,7 @@ import SelectBox from "./components/SelectBox";
 import DraggableWindow from "./components/DraggableWindow";
 import * as Label from "@radix-ui/react-label";
 import ColorInput from "./components/ColorInput";
+import { ToggleLeft, ToggleRight } from "lucide-react";
 
 import { CustomizationContext } from "./components/CustomizationProvider";
 import { DaysContext } from "./components/DaysProvider";
@@ -17,9 +18,15 @@ import MonthsCustomWindow from "./components/Calendar/MonthsCustomWindow";
 import BtnToogle from "./components/BtnToogle/BtnToogle";
 
 function App() {
-  const { year,baseTextColor, toggleCustomization, baseStrokeColor, basePageBgColor } =
-    React.useContext(CustomizationContext);
-    
+  const {
+    year,
+    baseTextColor,
+    toggleCustomization,
+    baseStrokeColor,
+    basePageBgColor,
+    showCustomization,
+  } = React.useContext(CustomizationContext);
+
   const { showCustomWeeks } = React.useContext(WeekContext);
   const { showCustomDays } = React.useContext(DaysContext);
   const { showCustomMonths } = React.useContext(MonthsContext);
@@ -30,10 +37,28 @@ function App() {
     setCustomizationOpen(!customizationOpen);
   }
 
+  function getUiColor(opacity = false) {
+    const values = basePageBgColor
+      .replace(
+        /[Hh][Ss][Ll][Aa][\\(](((([\d]{1,3}|[\d\\%]{2,4}|[\d\\.]{1,3})[\\,]{0,1})[\s]*){4})[\\)]/gm,
+        "$1"
+      )
+      .split(",");
+
+    const light = values[2].replace("%", "");
+
+    if (opacity)
+      return `hsla(${values[0]},${values[1]},${light >= 80 ? 0 : 100}%,.2)`;
+
+    return `hsl(${values[0]},${values[1]},${light >= 80 ? 0 : 100}%)`;
+  }
+
   return (
     <div
       className="mainContainer"
       style={{
+        "--uiTextColor": getUiColor(),
+        "--uiTextColorOpacity": getUiColor(true),
         "--textColor": baseTextColor,
         "--pageBgColor": basePageBgColor,
         "--pageStroke": baseStrokeColor,
@@ -41,7 +66,8 @@ function App() {
     >
       <header>
         <div className="baseConfig">
-          {year}
+          <span>{year}</span>
+
           <BtnToogle onToogle={toggleBaseCustomization} />
         </div>
 
@@ -49,7 +75,8 @@ function App() {
           className="toggleAllCustomizations"
           onClick={toggleCustomization}
         >
-          toggle customizations
+          {!showCustomization && <ToggleLeft size={20} />}
+          {showCustomization && <ToggleRight size={20} />}
         </button>
       </header>
 

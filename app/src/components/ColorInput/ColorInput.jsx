@@ -23,16 +23,16 @@ function ColorInput({ value, onChange }) {
       setSat(values[1].replace("%", ""));
       setLight(values[2].replace("%", ""));
       const opac = values[3].replace(".", "");
-      setOpacity(opac === "1" ? 10 : opac);
+      setOpacity(opac === "1" ? 10 : Number(opac));
 
       return value;
     }
-    return "hsla(0, 0%, 71%, 1)";
+    return "";
   });
 
   React.useEffect(() => {
     // console.log({ opacity });
-    let opac = opacity / 10;
+    let opac = Number(opacity) / 10;
     opac = opac.toString().replace("0.", ".");
     const colorValue = `hsla(${hue},${sat}%,${light}%,${opac})`;
     setColor(colorValue);

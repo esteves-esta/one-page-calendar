@@ -9,14 +9,19 @@ import useStickyState from "../../hooks/useStickyState";
 export const MonthsContext = React.createContext();
 
 function MonthsProvider({ children }) {
-  const {
-    year,
-    baseLang,
-    calendarBaseStyle,
-  } = React.useContext(CustomizationContext);
+  const { year, baseLang, calendarBaseStyle, baseBgColor } =
+    React.useContext(CustomizationContext);
 
   const [showCustomMonths, setShowCustomMonths] = React.useState(false);
   const [letterCase, setLetterCase] = useStickyState("title");
+  const [monthBgColor, setMonthBgColor] = useStickyState(
+    "",
+    "one-page-cal-custom-monthbgcolor"
+  );
+
+  React.useEffect(() => {
+    setMonthBgColor(baseBgColor);
+  }, [baseBgColor, setMonthBgColor]);
 
   const [monthstyle, setmonthStyle] = useStickyState(
     "",
@@ -106,7 +111,7 @@ function MonthsProvider({ children }) {
 
     showCustomMonths,
     toggleCustomization,
-    
+
     monthLang,
     setmonthLang,
 
@@ -118,6 +123,9 @@ function MonthsProvider({ children }) {
 
     letterCase,
     setLetterCase,
+
+    monthBgColor,
+    setMonthBgColor,
   };
 
   return (

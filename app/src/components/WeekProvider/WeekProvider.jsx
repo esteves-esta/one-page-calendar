@@ -8,8 +8,17 @@ export const WeekContext = React.createContext();
 // eslint-disable-next-line react/prop-types
 function WeekProvider({ children }) {
   const [showCustomWeeks, setshowCustomWeeks] = React.useState(false);
-  const { baseLang, calendarBaseStyle } =
+  const { baseLang, calendarBaseStyle, baseBgColor } =
     React.useContext(CustomizationContext);
+
+  const [weekBgColor, setWeekBgColor] = useStickyState(
+    "",
+    "one-page-cal-custom-weekbgcolor"
+  );
+  
+  React.useEffect(() => {
+    setWeekBgColor(baseBgColor);
+  }, [baseBgColor, setWeekBgColor]);
 
   const [weekstyle, setWeekStyle] = React.useState();
   const [weekLang, setWeekLang] = useStickyState(
@@ -81,6 +90,8 @@ function WeekProvider({ children }) {
     setWeekLang,
     showCustomWeeks,
     setshowCustomWeeks,
+    weekBgColor,
+    setWeekBgColor,
   };
 
   return <WeekContext.Provider value={state}>{children}</WeekContext.Provider>;

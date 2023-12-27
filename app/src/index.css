@@ -29,32 +29,37 @@ header {
   cursor: pointer;
   background-color: transparent;
   border: none;
-  text-transform: uppercase;
-  letter-spacing: .05em;
-  font-weight: bold;
-  font-size: .9em;
-  height: 2.4em;
-  color: var(--pageBgColor);
-  filter: contrast(6%) brightness(1.3);
-  border-bottom: .21em solid var(--pageBgColor);
+  color: var(--uiTextColor);
+  padding: 0em;
+  will-change: contents;
+  transition:
+    filter 750ms ease,
+    border-color 750ms ease;
+  border-radius: 10px;
 }
 
 .toggleAllCustomizations:hover,
 .toggleAllCustomizations:focus {
-  filter: contrast(2%) brightness(1);
+  filter: opacity(.5);
 }
 
 .baseConfig {
   display: flex;
   gap: 10px;
   align-items: center;
-  color: var(--pageBgColor);
-  filter: contrast(6%) brightness(1.3);
+}
+
+.baseConfig span {
+  padding: .3em .5em;
+  color: var(--uiTextColor);
 }
 
 
 
 :root {
+  --uiTextColor: black;
+  --uiTextColorOpacity: black;
+
   user-select: none;
   --textColor: black;
   --pageBgColor: #f1f2f2;

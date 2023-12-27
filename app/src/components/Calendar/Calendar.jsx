@@ -6,6 +6,9 @@ import MonthsGrid from "./MonthsGrid";
 import WeeksGrid from "./WeeksGrid";
 import { CustomizationContext } from "../CustomizationProvider";
 import useMatchMedia from "../../hooks/useMatchMedia";
+import { DaysContext } from "../DaysProvider";
+import { WeekContext } from "../WeekProvider";
+import { MonthsContext } from "../MonthsProvider";
 
 function Calendar() {
   const {
@@ -23,8 +26,18 @@ function Calendar() {
   }
 
   function getDayOfWeekBgColor(dayOfWeek) {
-    return weekDaysToggle[dayOfWeek] ? weekDaysColors[dayOfWeek] : baseBgColor;
+    if (weekDaysColors[dayOfWeek] && weekDaysToggle[dayOfWeek]) return weekDaysColors[dayOfWeek];
+
+    if (weekBgColor) return weekBgColor;
+
+    if (baseBgColor) return baseBgColor;
+
+    // return weekDaysToggle[dayOfWeek] ? weekDaysColors[dayOfWeek] : baseBgColor;
   }
+
+  const { weekBgColor } = React.useContext(WeekContext);
+  const { dayBgColor } = React.useContext(DaysContext);
+  const { monthBgColor } = React.useContext(MonthsContext);
 
   const isNarrow = useMatchMedia(600);
 
@@ -39,9 +52,9 @@ function Calendar() {
         "--weekStroke": baseStrokeColor,
         "--monthStroke": baseStrokeColor,
 
-        "--dayBg": baseBgColor,
-        "--weekBg": baseBgColor,
-        "--monthBg": baseBgColor,
+        "--dayBg": dayBgColor || baseBgColor,
+        "--weekBg": weekBgColor || baseBgColor,
+        "--monthBg": monthBgColor || baseBgColor,
 
         "--dayOfWeek0": getDayOfWeekTextColor(0),
         "--dayOfWeek1": getDayOfWeekTextColor(1),

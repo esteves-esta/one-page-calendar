@@ -6,13 +6,21 @@ import useStickyState from "../../hooks/useStickyState";
 export const DaysContext = React.createContext();
 
 function DaysProvider({ children }) {
-  const { calendarBaseStyle } = React.useContext(CustomizationContext);
+  const { calendarBaseStyle, baseBgColor } =
+    React.useContext(CustomizationContext);
 
   const [daystyle, setDayStyle] = useStickyState(
     "",
     "one-page-cal-custom-daystyle"
   );
   const [classes, setClasses] = React.useState("days");
+  const [dayBgColor, setDayBgColor] = useStickyState(
+    "",
+    "one-page-cal-custom-daybgcolor"
+  );
+  React.useEffect(() => {
+    setDayBgColor(baseBgColor);
+  }, [baseBgColor, setDayBgColor]);
 
   React.useEffect(() => {
     setDayStyle("");
@@ -33,6 +41,8 @@ function DaysProvider({ children }) {
     toggleCustomization,
     daystyle,
     setDayStyle,
+    dayBgColor,
+    setDayBgColor,
   };
 
   return <DaysContext.Provider value={state}>{children}</DaysContext.Provider>;

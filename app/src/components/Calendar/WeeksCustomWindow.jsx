@@ -33,6 +33,8 @@ function WeekCustomization() {
     setWeekLang,
     showCustomWeeks,
     setshowCustomWeeks,
+    weekBgColor,
+    setWeekBgColor,
   } = React.useContext(WeekContext);
 
 
@@ -60,6 +62,10 @@ function WeekCustomization() {
           label="Styles"
           options={calendarStyles}
         />
+        <Label.Root className="field">
+          Background
+          <ColorInput value={weekBgColor} onChange={setWeekBgColor} />
+        </Label.Root>
       </div>
       <div className="row">
         <label className="rowLabel">Config</label>
