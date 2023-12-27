@@ -33,7 +33,6 @@ function Calendar() {
       onDrag={(event) => event.preventDefault()}
       // className={calendarBaseStyle}
       style={{
-        "--textColor": baseTextColor,
         "--stroke-width": isNarrow ? "2px" : "1px",
 
         "--dayStroke": baseStrokeColor,

@@ -1,0 +1,17 @@
+.btnToogle {
+  border: none;
+  cursor: pointer;
+  padding: .3em;
+  background: transparent;
+  border-radius: 100px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--textColor);
+  color: var(--pageBgColor);
+  filter: contrast(6%) brightness(1.3);
+  transition: filter 750ms ease;
+}
+
+.btnToogle:hover {
+  filter: contrast(2%) brightness(1);
+}

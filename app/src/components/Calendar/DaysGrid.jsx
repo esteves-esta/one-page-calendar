@@ -1,10 +1,8 @@
 import React from "react";
 import { range } from "../../helpers/range";
-import DraggableWindow from "../DraggableWindow";
 import { CustomizationContext } from "../CustomizationProvider";
-import { Pen } from "lucide-react";
-import SelectBox from "../SelectBox";
-import useStickyState from "../../hooks/useStickyState";
+import { DaysContext } from "../DaysProvider/DaysProvider";
+import BtnToogle from "../BtnToogle";
 
 function DaysGrid() {
   const [days, setDays] = React.useState([]);
@@ -32,27 +30,8 @@ function DaysGrid() {
     setDays([line1, line2, line3, line4, line5]);
   }, []);
 
-  const { showCustomization, calendarBaseStyle, calendarStyles } =
-    React.useContext(CustomizationContext);
-
-  const [daystyle, setDayStyle] = useStickyState(
-    "",
-    "one-page-cal-custom-daystyle"
-  );
-  const [classes, setClasses] = React.useState("days");
-  const [customizationOpen, setCustomizationOpen] = React.useState(false);
-
-  function toggleCustomization() {
-    setCustomizationOpen(!customizationOpen);
-  }
-
-  React.useEffect(() => {
-    setDayStyle("");
-  }, [calendarBaseStyle, setDayStyle]);
-
-  React.useEffect(() => {
-    setClasses(`${!daystyle ? calendarBaseStyle : daystyle} days`);
-  }, [calendarBaseStyle, daystyle]);
+  const { showCustomization } = React.useContext(CustomizationContext);
+  const { classes, toggleCustomization } = React.useContext(DaysContext);
 
   return (
     <>
@@ -68,31 +47,9 @@ function DaysGrid() {
         ))}
 
         {showCustomization && (
-          <button
-            onClick={toggleCustomization}
-            className="daytoogle btn-toogle"
-          >
-            <Pen size={20} />
-          </button>
+          <BtnToogle onToogle={toggleCustomization} classes="daytoogle" />
         )}
       </div>
-      
-      {customizationOpen && (
-        <DraggableWindow
-          defaultPosition={{ x: 50, y: 300 }}
-          onClose={toggleCustomization}
-          windowLabel="Day customization"
-        >
-          <SelectBox
-            id="style"
-            value={daystyle}
-            onValueChange={setDayStyle}
-            placeholder="Choose calendar style"
-            label="Styles"
-            options={calendarStyles}
-          />
-        </DraggableWindow>
-      )}
     </>
   );
 }

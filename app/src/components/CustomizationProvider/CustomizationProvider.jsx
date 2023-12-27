@@ -11,10 +11,8 @@ function CustomizationProvider({ children }) {
     "one-page-cal-custom-basestyle"
   );
   const [year, setYear] = React.useState(2023);
-  const [showCustomization, setShowCustomization] = useStickyState(
-    false,
-    "one-page-cal-custom-showcustom"
-  );
+  const [showCustomization, setShowCustomization] = React.useState(false);
+
   const [baseLang, setBaseLang] = useStickyState(
     "pt",
     "one-page-cal-custom-baselang"
