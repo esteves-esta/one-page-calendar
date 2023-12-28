@@ -5,7 +5,7 @@ import SelectBox from "./components/SelectBox";
 import DraggableWindow from "./components/DraggableWindow";
 import * as Label from "@radix-ui/react-label";
 import ColorInput from "./components/ColorInput";
-import { ToggleLeft, ToggleRight, CalendarHeart } from "lucide-react";
+import { ToggleLeft, ToggleRight, CalendarHeart, Info } from "lucide-react";
 
 import { CustomizationContext } from "./components/CustomizationProvider";
 import { DaysContext } from "./components/DaysProvider";
@@ -34,9 +34,13 @@ function App() {
 
   const [customizationOpen, setCustomizationOpen] = React.useState(false);
   const [openEvents, setOpenEvents] = React.useState(false);
+  const [openInfo, setOpenInfo] = React.useState(false);
 
   function toggleBaseCustomization() {
     setCustomizationOpen(!customizationOpen);
+  }
+  function toggleInfo() {
+    setOpenInfo(!openInfo);
   }
 
   function getUiColor(opacity = false) {
@@ -77,13 +81,18 @@ function App() {
           />
         </div>
 
-        <button
-          className="toggleAllCustomizations"
-          onClick={toggleCustomization}
-        >
-          {!showCustomization && <ToggleLeft size={20} />}
-          {showCustomization && <ToggleRight size={20} />}
-        </button>
+        <div className="btnRow">
+          <button className="toggleAllCustomizations" onClick={toggleInfo}>
+            <Info size={20} />
+          </button>
+          <button
+            className="toggleAllCustomizations"
+            onClick={toggleCustomization}
+          >
+            {!showCustomization && <ToggleLeft size={20} />}
+            {showCustomization && <ToggleRight size={20} />}
+          </button>
+        </div>
       </header>
 
       {customizationOpen && (
@@ -96,6 +105,45 @@ function App() {
 
       <Events openEvents={openEvents} setOpenEvents={setOpenEvents} />
 
+      {openInfo && (
+        <DraggableWindow
+          defaultPosition={{ x: 50, y: 50 }}
+          onClose={toggleInfo}
+          windowLabel="About this site"
+        >
+          <h4>About</h4>
+
+          <p>
+            This site was inspired by the article
+            <a
+              href="https://bigthink.com/starts-with-a-bang/one-page-calendar/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              this article
+            </a>
+          </p>
+          <q>
+            It's simpler, more compact, and reusable from year-to-year in a way
+            that no other calendar is.
+          </q>
+
+          <p>
+            This site saves all its data on the localstorage of the user
+            browser, so when the user cleans the history/cache all data is
+            deleted.
+          </p>
+
+          <p>No data is saved in the cloud, no cookies or analytics 💕✨.</p>
+          <h4>Features</h4>
+
+          <ul>
+            <li>Customizations of style</li>
+            <li>Saving events</li>
+            <li>Exporting events as .csv</li>
+          </ul>
+        </DraggableWindow>
+      )}
       <Calendar />
     </div>
   );

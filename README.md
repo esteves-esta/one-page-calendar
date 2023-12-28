@@ -43,11 +43,11 @@
   - [x] change background color of grid
   - [x] change background color of cell
   - [x] change color of each day of the week for each day
+- [x] select day and year - and open toast saying if you want to save date
 
 ## 🔨 To do
 
-- [ ] sounds - paper scratching, 
-- [ ] select day and year - and open toast saying if you want to save date
+- [ ] sounds on events/buttons press
 
 ---
 
