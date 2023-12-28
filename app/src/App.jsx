@@ -114,14 +114,14 @@ function App() {
           <h4>About</h4>
 
           <p>
-            This site was inspired by the article
+            This site was inspired by{" "}
             <a
               href="https://bigthink.com/starts-with-a-bang/one-page-calendar/"
               target="_blank"
               rel="noreferrer"
             >
               this article
-            </a>
+            </a> from the magazine BigThink.
           </p>
           <q>
             It's simpler, more compact, and reusable from year-to-year in a way

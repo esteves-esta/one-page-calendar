@@ -26,7 +26,34 @@
 ---
 
 ## Printscreen
-<img alt="" src="" width="550" />
+<img alt="Information window printscreen" src="./info-window.png" width="550" />
+
+---
+
+<img alt="Customization printscreen" src="./header-baseCustomizations.png" width="550" />
+
+---
+
+<img alt="Saving event printscreen" src="./header-savingEvent.png" width="550" />
+
+---
+
+<img alt="Saved event printscreen" src="./event-saved.png" width="550" />
+
+---
+
+<img alt="Customization printscreen" src="./header-weekCustomizations.png" width="550" />
+
+---
+
+<img alt="Customization printscreen" src="./header-monthCustomization.png" width="550" />
+
+
+---
+
+<img alt="Showing events printscreen" src="./events-more.png" width="550" />
+
+
 
 ---
 ## 📖 Features
