@@ -204,6 +204,7 @@ header .btnRow {
 
 .eventContainer button {
   align-self: center;
+  min-width: 36px;
 }
 
 

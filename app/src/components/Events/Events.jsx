@@ -52,10 +52,7 @@ function Events({ openEvents, setOpenEvents }) {
       eventsContent.push([title, `${day}/${month + 1}/${year}`]);
     });
 
-    downloadCsvFile(
-      eventsContent.join("\n"),
-      "events.csv"
-    );
+    downloadCsvFile(eventsContent.join("\n"), "events.csv");
   }
 
   function downloadCsvFile(content, fileName) {
@@ -82,7 +79,12 @@ function Events({ openEvents, setOpenEvents }) {
           onClose={emptySelectedDate}
           windowLabel="Save event"
         >
-          <h4>Do you want to save the date ?</h4>
+          <h4>
+            Do you want to save the date{" "}
+            <strong>
+              {selectDate.day}/{selectDate.month}/{year} ?
+            </strong>
+          </h4>
 
           <Label.Root className="eventTitle">
             Title of date
