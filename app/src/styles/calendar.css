@@ -31,6 +31,7 @@
   position: relative;
 }
 
+
 .daytoogle {
   position: absolute;
   transform: translate(-25px, -15px);
@@ -69,6 +70,24 @@
 .square .week:hover,
 .square .day:hover {
   box-shadow: .25em .3em 0px .05em #9999995d;
+}
+
+.selected {
+  /* background-color: var(--textColor) !important;
+  color: var(--pageBgColor) !important; */
+  box-shadow: inset 0px 0px 0px 2px var(--textColor);
+}
+
+.selected.week:hover,
+.selected.day:hover {
+  box-shadow: inset 0px 0px 0px 2px var(--textColor),
+    inset .45em .6em 0px .05em #9999998e;
+}
+
+.square .selected.week:hover,
+.square .selected.day:hover {
+  box-shadow: inset 0px 0px 0px 2px var(--textColor),
+    .25em .3em 0px .05em #9999995d;
 }
 
 /* background: linear-gradient(0.25turn, hsla(198, 45%, 45%, 0.164), #ebf8e1, hsla(31, 91%, 60%, 0.267)); */

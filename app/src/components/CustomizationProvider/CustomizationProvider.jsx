@@ -6,6 +6,15 @@ import useStickyState from "../../hooks/useStickyState";
 export const CustomizationContext = React.createContext();
 
 function CustomizationProvider({ children }) {
+  const [events, setEvents] = useStickyState([], "one-page-cal-events");
+  const [selectDate, setSelecteDate] = React.useState({
+    id: "",
+    day: -1,
+    month: -1,
+    title: "",
+    year: 2023,
+  });
+
   const [calendarBaseStyle, setCalendarBaseStyle] = useStickyState(
     "square",
     "one-page-cal-custom-basestyle"
@@ -92,6 +101,10 @@ function CustomizationProvider({ children }) {
     setWeekDaysColors,
     weekDaysToggle,
     setWeekDaysToggle,
+    events,
+    setEvents,
+    selectDate,
+    setSelecteDate,
   };
 
   return (

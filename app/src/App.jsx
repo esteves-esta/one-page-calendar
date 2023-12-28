@@ -5,7 +5,7 @@ import SelectBox from "./components/SelectBox";
 import DraggableWindow from "./components/DraggableWindow";
 import * as Label from "@radix-ui/react-label";
 import ColorInput from "./components/ColorInput";
-import { ToggleLeft, ToggleRight } from "lucide-react";
+import { ToggleLeft, ToggleRight, CalendarHeart } from "lucide-react";
 
 import { CustomizationContext } from "./components/CustomizationProvider";
 import { DaysContext } from "./components/DaysProvider";
@@ -15,7 +15,8 @@ import { MonthsContext } from "./components/MonthsProvider";
 import WeeksCustomWindow from "./components/Calendar/WeeksCustomWindow";
 import DaysCustomWindow from "./components/Calendar/DaysCustomWindow";
 import MonthsCustomWindow from "./components/Calendar/MonthsCustomWindow";
-import BtnToogle from "./components/BtnToogle/BtnToogle";
+import BtnToogle from "./components/BtnToogle";
+import Events from "./components/Events";
 
 function App() {
   const {
@@ -32,6 +33,7 @@ function App() {
   const { showCustomMonths } = React.useContext(MonthsContext);
 
   const [customizationOpen, setCustomizationOpen] = React.useState(false);
+  const [openEvents, setOpenEvents] = React.useState(false);
 
   function toggleBaseCustomization() {
     setCustomizationOpen(!customizationOpen);
@@ -69,6 +71,10 @@ function App() {
           <span>{year}</span>
 
           <BtnToogle onToogle={toggleBaseCustomization} />
+          <BtnToogle
+            icon={CalendarHeart}
+            onToogle={() => setOpenEvents(!openEvents)}
+          />
         </div>
 
         <button
@@ -87,6 +93,8 @@ function App() {
       {showCustomDays && <DaysCustomWindow />}
       {showCustomWeeks && <WeeksCustomWindow />}
       {showCustomMonths && <MonthsCustomWindow />}
+
+      <Events openEvents={openEvents} setOpenEvents={setOpenEvents} />
 
       <Calendar />
     </div>

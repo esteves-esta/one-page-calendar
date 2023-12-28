@@ -130,6 +130,70 @@ header {
   background-color: #f1f2f2;
   padding: .2em .8em;
 }
+
+.eventTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.eventTitle input {
+  height: 48px;
+  width: 100%;
+  padding: .3em 1em;
+  border: 1px solid rgba(68, 68, 68, 0.3);
+
+}
+
+.eventBtn {
+  cursor: pointer;
+  height: 48px;
+  background-color: transparent;
+  font-weight: bold;
+  font-size: .9em;
+  letter-spacing: .1em;
+  border: 1px solid rgba(68, 68, 68, 0.3);
+  transition: background 750ms ease,
+    border-color 750ms ease;
+}
+
+.eventBtn:hover {
+  background-color: rgba(68, 68, 68, 0.3);
+}
+
+.eventBtn:focus {
+  border-color: rgba(68, 68, 68, 0.9);
+  outline: 2px solid rgba(68, 68, 68, 0.356);
+  --box-shadow-focus: 0px 0px 3px 1px var(--color-text);
+  box-shadow: var(--box-shadow-focus);
+}
+
+.eventTitle input:focus {
+  border-color: rgba(68, 68, 68, 0.9);
+  outline: 2px solid rgba(68, 68, 68, 0.356);
+  --box-shadow-focus: 0px 0px 3px 1px var(--color-text);
+  box-shadow: var(--box-shadow-focus);
+}
+
+
+
+.eventContainer {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: .5em;
+  border-bottom: 1px dashed #444;
+}
+
+.eventContainer span {
+  font-size: .9em;
+  opacity: .6;
+}
+
+.eventContainer button {
+  align-self: center;
+}
+
+
 /* 
 .baseCellField {
   display: grid;

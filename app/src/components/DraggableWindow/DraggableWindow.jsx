@@ -5,6 +5,7 @@ import classes from "./styles.module.css";
 import { X } from "lucide-react";
 
 function DraggableWindow({ defaultPosition, windowLabel, children, onClose }) {
+  const [zIndex, setZIndex] = React.useState(2);
   const nodeRef = React.useRef(null);
 
   return (
@@ -13,8 +14,16 @@ function DraggableWindow({ defaultPosition, windowLabel, children, onClose }) {
       bounds="parent"
       handle=".handler"
       nodeRef={nodeRef}
+      onStart={() => setZIndex(zIndex + 1)}
+      // onStop={() => setDragging(false)}
     >
-      <div ref={nodeRef} className={classes.container}>
+      <div
+        ref={nodeRef}
+        className={classes.container}
+        style={{
+          zIndex: zIndex,
+        }}
+      >
         <div className={`handler ${classes.handle}`}>
           {windowLabel}
           <button onClick={onClose}>

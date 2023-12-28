@@ -92,9 +92,9 @@ function MonthsProvider({ children }) {
   }, [letterCase, setClasses]);
 
   React.useEffect(() => {
-    setmonthLang(baseLang);
+    // setmonthLang(baseLang);
     setMonthAbbr(monthLangAbbrs[baseLang]);
-  }, [baseLang, setMonthAbbr, setmonthLang]);
+  }, [baseLang, setMonthAbbr]);
 
   React.useEffect(() => {
     setMonthAbbr(monthLangAbbrs[monthLang]);

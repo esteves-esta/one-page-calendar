@@ -6,6 +6,21 @@ import BtnToogle from "../BtnToogle";
 
 function DaysGrid() {
   const [days, setDays] = React.useState([]);
+  const [eventsOnTheMonth, setEventsOnTheMonth] = React.useState([]);
+
+  const { year, showCustomization, events, selectDate, setSelecteDate } =
+    React.useContext(CustomizationContext);
+  const { classes, toggleCustomization } = React.useContext(DaysContext);
+
+  React.useEffect(() => {
+    if (selectDate.month !== -1) {
+      setEventsOnTheMonth(
+        events.filter((event) => event.month === selectDate.month && event.year === year)
+      );
+    } else {
+      setEventsOnTheMonth([]);
+    }
+  }, [events, selectDate, year]);
 
   React.useEffect(() => {
     const line1 = [];
@@ -30,19 +45,41 @@ function DaysGrid() {
     setDays([line1, line2, line3, line4, line5]);
   }, []);
 
-  const { showCustomization } = React.useContext(CustomizationContext);
-  const { classes, toggleCustomization } = React.useContext(DaysContext);
+  function selectDay(day) {
+    if (day === selectDate.day) {
+      setSelecteDate({
+        ...selectDate,
+        day: -1,
+      });
+      return;
+    }
+    setSelecteDate({
+      ...selectDate,
+      day,
+    });
+  }
 
   return (
     <>
       <div className={classes}>
         {days.map((line, index) => (
           <div key={`line${index}`} className={`dayline line${index + 1}`}>
-            {line.map((day) => (
-              <div key={day} className={`day`}>
-                {day <= 31 ? day : ""}
-              </div>
-            ))}
+            {line.map((day) => {
+              const eventsOnDay = eventsOnTheMonth.filter(
+                (event) => event.day === day
+              );
+              return (
+                <button
+                  onClick={() => selectDay(day)}
+                  key={day}
+                  className={`day 
+                  ${eventsOnDay.length > 0 ? "eventOnDay " : ""} 
+                  ${selectDate.day === day ? "selected " : ""}`}
+                >
+                  {day <= 31 ? day : ""}{" "}
+                </button>
+              );
+            })}
           </div>
         ))}
 

@@ -4,13 +4,28 @@ import React from "react";
 import { range } from "../../helpers/range";
 import { CustomizationContext } from "../CustomizationProvider";
 import { MonthsContext } from "../MonthsProvider";
-import BtnToogle from '../BtnToogle'
+import BtnToogle from "../BtnToogle";
 
 function MonthsGrid() {
-  const { showCustomization } = React.useContext(CustomizationContext);
+  const { year, showCustomization, selectDate, setSelecteDate, events } =
+    React.useContext(CustomizationContext);
 
   const { toggleCustomization, classes, monthsYear, monthAbbr, monthCharNum } =
     React.useContext(MonthsContext);
+
+  function selectMonth(month) {
+    if (month === selectDate.month) {
+      setSelecteDate({
+        ...selectDate,
+        month: -1,
+      });
+      return;
+    }
+    setSelecteDate({
+      ...selectDate,
+      month,
+    });
+  }
 
   return (
     <>
@@ -20,11 +35,27 @@ function MonthsGrid() {
             key={`dayOfWeek${dayOfWeek}`}
             className={`monthLine m${dayOfWeek + 1}`}
           >
-            {monthsYear[dayOfWeek].map((month) => (
-              <div key={month} className={`month`}>
-                {monthAbbr[month].slice(0, monthCharNum)}
-              </div>
-            ))}
+            {monthsYear[dayOfWeek].map((month) => {
+              const monthEvents = events.filter(
+                (event) => event.month === Number(month) && event.year === year
+              );
+
+              return (
+                <button
+                  onClick={() => selectMonth(month)}
+                  key={month}
+                  className={`${
+                    selectDate.month === month ? "selected" : ""
+                  } month`}
+                >
+                  {monthAbbr[month].slice(0, monthCharNum)}
+
+                  <span className="monthEventCount">
+                    {monthEvents.length > 0 ? `(${monthEvents.length})` : ""}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         ))}
 
