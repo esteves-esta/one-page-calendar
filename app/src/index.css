@@ -1,0 +1,225 @@
+@import url("./styles/calendar.css");
+
+body {
+  overflow: hidden;
+}
+
+q {
+  font-size: 1.1em;
+  font-weight: 500;
+  padding: 0em 1em;
+  opacity: .9;
+
+}
+
+.mainContainer {
+  background-color: var(--pageBgColor);
+  overflow: hidden;
+  height: 100vh;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+main {
+  padding: 3em 4em;
+  padding-top: 0em;
+  color: var(--textColor);
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+header {
+  padding: 1em;
+  /* border: 1px solid; */
+  display: flex;
+  justify-content: space-between;
+}
+
+header .btnRow {
+  display: flex;
+  gap: 10px;
+}
+
+.toggleAllCustomizations {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: var(--uiTextColor);
+  padding: 0em;
+  will-change: contents;
+  transition:
+    filter 750ms ease,
+    border-color 750ms ease;
+  border-radius: 10px;
+}
+
+.toggleAllCustomizations:hover,
+.toggleAllCustomizations:focus {
+  filter: opacity(.5);
+}
+
+.baseConfig {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.baseConfig span {
+  padding: .3em .5em;
+  color: var(--uiTextColor);
+}
+
+
+
+:root {
+  --uiTextColor: black;
+  --uiTextColorOpacity: black;
+
+  user-select: none;
+  --textColor: black;
+  --pageBgColor: #f1f2f2;
+  --stroke-width: 1px;
+
+  --pageStroke: paleturquoise;
+  --dayStroke: paleturquoise;
+  --weekStroke: gray;
+  --monthStroke: gray;
+
+  --dayBg: paleturquoise;
+  --weekBg: pink;
+  --monthBg: paleturquoise;
+
+  --dayOfWeek0: rosybrown;
+  --dayOfWeek1: rosybrown;
+  --dayOfWeek2: rosybrown;
+  --dayOfWeek3: rosybrown;
+  --dayOfWeek4: rosybrown;
+  --dayOfWeek5: rosybrown;
+  --dayOfWeek6: rosybrown;
+
+  --dayOfWeek0BG: transparent;
+  --dayOfWeek1BG: transparent;
+  --dayOfWeek2BG: transparent;
+  --dayOfWeek3BG: transparent;
+  --dayOfWeek4BG: transparent;
+  --dayOfWeek5BG: transparent;
+  --dayOfWeek6BG: transparent;
+}
+
+/* ssssssssssssssssssssssssssssss */
+
+.row {
+  display: flex;
+  gap: 10px;
+  border: .2em #cccccc;
+  border-style: double;
+  padding: 1em;
+  border-radius: 6px;
+  position: relative;
+}
+
+.row .field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+
+}
+
+.row .field input {
+  cursor: pointer;
+  width: 100%;
+  height: 48px;
+  padding: 0em;
+  border: 1px solid black;
+}
+
+.rowLabel {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: .1em;
+  font-size: .8em;
+  color: #999;
+  position: absolute;
+  transform: translate(0px, -28px);
+  background-color: #f1f2f2;
+  padding: .2em .8em;
+}
+
+.eventTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.eventTitle input {
+  height: 48px;
+  width: 100%;
+  padding: .3em 1em;
+  border: 1px solid rgba(68, 68, 68, 0.3);
+
+}
+
+.eventBtn {
+  cursor: pointer;
+  height: 48px;
+  background-color: transparent;
+  font-weight: bold;
+  font-size: .9em;
+  letter-spacing: .1em;
+  border: 1px solid rgba(68, 68, 68, 0.3);
+  transition: background 750ms ease,
+    border-color 750ms ease;
+}
+
+.eventBtn:hover {
+  background-color: rgba(68, 68, 68, 0.3);
+}
+
+.eventBtn:focus {
+  border-color: rgba(68, 68, 68, 0.9);
+  outline: 2px solid rgba(68, 68, 68, 0.356);
+  --box-shadow-focus: 0px 0px 3px 1px var(--color-text);
+  box-shadow: var(--box-shadow-focus);
+}
+
+.eventTitle input:focus {
+  border-color: rgba(68, 68, 68, 0.9);
+  outline: 2px solid rgba(68, 68, 68, 0.356);
+  --box-shadow-focus: 0px 0px 3px 1px var(--color-text);
+  box-shadow: var(--box-shadow-focus);
+}
+
+
+
+.eventContainer {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: .5em;
+  border-bottom: 1px dashed #444;
+}
+
+.eventContainer span {
+  font-size: .9em;
+  opacity: .6;
+}
+
+.eventContainer button {
+  align-self: center;
+}
+
+
+/* 
+.baseCellField {
+  display: grid;
+  grid-template-columns: 0fr 2fr;
+}
+
+.baseCellTransparentBtn {
+  cursor: pointer;
+  padding: .3em;
+  background-color: rgba(236, 67, 25, 0.247);
+  border: none;
+}
+
+.baseCellField:hover {
+  grid-template-columns: .3fr 2fr;
+} */

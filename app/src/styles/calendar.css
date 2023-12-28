@@ -1,0 +1,113 @@
+@import url("./weeks.css");
+@import url("./months.css");
+@import url("./days.css");
+@import url("./square.css");
+@import url("./only-v.css");
+@import url("./only-h.css");
+@import url("./table.css");
+
+.calendar {
+  min-height: 80vh;
+  display: grid;
+  grid-template-columns: .6fr 2fr;
+  grid-template-rows: 1fr 5fr;
+}
+
+.lower * {
+  text-transform: lowercase;
+}
+
+.upper * {
+  text-transform: uppercase;
+}
+
+.title * {
+  text-transform: capitalize;
+}
+
+.weeks,
+.days,
+.months {
+  position: relative;
+}
+
+
+.daytoogle {
+  position: absolute;
+  transform: translate(-25px, -15px);
+}
+
+.weektoogle {
+  position: absolute;
+  right: 0px;
+  transform: translate(20px, 15px);
+}
+
+
+.monthtoogle {
+  position: absolute;
+  transform: translate(-38px, -18px);
+}
+
+/* ------------------- */
+.month {
+  background-color: var(--monthBg);
+}
+
+.week {
+  background-color: var(--weekBg);
+}
+
+.day {
+  background-color: var(--dayBg);
+}
+
+.week:hover,
+.day:hover {
+  box-shadow: inset .25em .3em 0px .05em #9999998e;
+}
+
+.square .week:hover,
+.square .day:hover {
+  box-shadow: .25em .3em 0px .05em #9999995d;
+}
+
+.selected {
+  /* background-color: var(--textColor) !important;
+  color: var(--pageBgColor) !important; */
+  box-shadow: inset 0px 0px 0px 2px var(--textColor);
+}
+
+.selected.week:hover,
+.selected.day:hover {
+  box-shadow: inset 0px 0px 0px 2px var(--textColor),
+    inset .45em .6em 0px .05em #9999998e;
+}
+
+.square .selected.week:hover,
+.square .selected.day:hover {
+  box-shadow: inset 0px 0px 0px 2px var(--textColor),
+    .25em .3em 0px .05em #9999995d;
+}
+
+/* background: linear-gradient(0.25turn, hsla(198, 45%, 45%, 0.164), #ebf8e1, hsla(31, 91%, 60%, 0.267)); */
+/* 
+ TODO OPEN LATER
+.week:hover:after,
+.day:hover:after {
+  content: '';
+  display: block;
+  background-color: #cdcdcd;
+  box-shadow:
+    0px 0px 10px 0px #cdcdcd;
+
+  position: absolute;
+  width: calc(100% - 2.5em);
+  height: 10.5%;
+  z-index: -1;
+  opacity: .4;
+  left: 2.5em;
+} */
+
+/* transform: translateY(-4%); */
+/* height: 8%; small screen */

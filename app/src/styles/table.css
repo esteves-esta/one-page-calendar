@@ -1,0 +1,67 @@
+.table .week {
+  border: none;
+  border-radius: 0px;
+  border-bottom: var(--stroke-width) solid var(--weekStroke);
+  border-left: var(--stroke-width) solid var(--weekStroke);
+  gap: 0px;
+}
+
+.table.weeks,
+.table .weeks {
+  /* border-top: var(--stroke-width) solid var(--weekStroke); */
+  border-right: var(--stroke-width) solid var(--weekStroke);
+  border-right-width: .5em;
+  gap: 0px;
+  padding: 0em;
+}
+
+/* --------------------------- */
+.table .day {
+  border: none;
+  border-radius: 0px;
+  border-bottom: var(--stroke-width) solid var(--dayStroke);
+  border-right: var(--stroke-width) solid var(--dayStroke);
+}
+
+.table.days {
+  gap: 0px;
+}
+
+.table .dayline {
+  gap: 0px;
+  border-top: var(--stroke-width) solid var(--dayStroke);
+}
+
+.table .dayline:first-child {
+  border-left: var(--stroke-width) solid var(--dayStroke);
+}
+
+.table .days {
+  border-top: var(--stroke-width) solid var(--dayStroke);
+}
+
+/* --------------------------- */
+.table .month {
+  border: none;
+  border-bottom: var(--stroke-width) solid var(--monthStroke);
+  border-radius: 0px;
+
+}
+
+.table.months {
+  padding: 0em;
+}
+
+.table.months,
+.table .monthLine {
+  gap: 0px;
+}
+
+.table .monthLine {
+  border-style: solid;
+  border-color: var(--monthStroke);
+  border-top-width: .2em;
+  border-bottom-width: 0px;
+  border-right-width: .5em;
+  border-left-width: var(--stroke-width);
+}

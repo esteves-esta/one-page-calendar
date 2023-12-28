@@ -1,0 +1,53 @@
+.container {
+  font-family: 'Noto Sans KR', sans-serif;
+  position: absolute;
+  z-index: 2;
+  background-color: #f1f2f2;
+  border: .21em solid #444;
+  min-width: 300px;
+  max-width: 550px;
+  height: fit-content;
+  border-radius: 6px;
+  color: #444;
+  box-shadow:
+    0px 0px 0px 2px rgba(0, 0, 0, 0.534),
+    4px 4px 7px 3px rgba(0, 0, 0, 0.2);
+}
+
+.content {
+  padding: 2em 1.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+.handle {
+  font-family: 'Noto Sans KR', sans-serif;
+  width: 100%;
+  padding: .4em .7em;
+  cursor: move;
+  background-color: #444;
+  font-weight: 500;
+  font-size: .9em;
+  letter-spacing: .03em;
+  display: flex;
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.handle button {
+  border: none;
+  color: white;
+  background-color: #000;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: .3em;
+  transition: filter 750ms ease;
+}
+
+.handle button:hover {
+  filter: contrast(60%);
+}

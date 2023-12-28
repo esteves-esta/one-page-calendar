@@ -1,0 +1,56 @@
+.ToggleGroup {
+  display: flex;
+  width: 100%;
+  border: 1px solid rgba(68, 68, 68, 0.3);
+  border-radius: 3px;
+}
+
+.ToggleGroupItem {
+  cursor: pointer;
+  display: flex;
+  line-height: 1;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  background-color: white;
+  font-size: .9em;
+  width: 100%;
+  height: 40px;
+  margin-left: 1px;
+  transition: background-color 750ms ease;
+}
+
+.ToggleGroupItem:focus {
+  border-color: rgba(68, 68, 68, 0.9);
+  outline: 2px solid rgba(68, 68, 68, 0.356);
+  --box-shadow-focus: 0px 0px 3px 1px var(--color-text);
+  box-shadow: var(--box-shadow-focus);
+}
+
+.ToggleGroupItem:first-child {
+  margin-left: 0;
+  /* border-left-width: 1px; */
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.ToggleGroupItem:last-child {
+  /* border-right-width: 1px; */
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.ToggleGroupItem:hover {
+  background-color: #ddd;
+  color: #444;
+}
+
+.ToggleGroupItem[data-state="on"] {
+  background-color: #444;
+  color: white;
+}
+
+.ToggleGroupItem[data-state="on"]:hover {
+  background-color: #666;
+}

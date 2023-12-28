@@ -1,0 +1,82 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
+.label {
+  color: #444 !important;
+}
+
+.SelectTrigger {
+  font-family: 'Noto Sans', sans-serif !important;
+  text-transform: capitalize;
+  color: #444 !important;
+  background-color: transparent;
+  border: 1px solid ;
+  border-color: rgba(68, 68, 68, 0.3);
+  padding: .8em;
+  height: 48px;
+  cursor: pointer;
+  min-width: 135px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 0.2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: keep-all;
+  white-space: nowrap;
+}
+
+.SelectContent {
+  font-family: 'Noto Sans', sans-serif !important;
+  text-transform: capitalize;
+  width: 250px;
+  border-radius: 0.2em;
+  /* width: 100%; */
+  max-height: 200px;
+  background-color: white;
+  border: 1px solid rgba(68, 68, 68, 0.356);
+  will-change: contents;
+  transition:
+    border-color 750ms ease;
+}
+
+.SelectTrigger:focus {
+  border-color: rgba(68, 68, 68, 0.9);
+  outline: 2px solid rgba(68, 68, 68, 0.356);
+  --box-shadow-focus: 0px 0px 3px 1px var(--color-text);
+  box-shadow: var(--box-shadow-focus);
+}
+
+.SelectIcon {
+  color: #444;
+  opacity: 0.55;
+}
+
+/* .SelectViewport {} */
+
+.SelectItem {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  padding: .8em 1.5em;
+  /* transition: all .5s linear */
+}
+
+.SelectItem:hover,
+.SelectItem:focus {
+  outline: none;
+  background-color: rgba(68, 68, 68, 0.2);
+}
+
+.ScrollBtn {
+  display: flex;
+  justify-content: center;
+  color: #444
+}
+
+.SelectItemIndicator {}

@@ -1,0 +1,19 @@
+.btnToogle {
+  cursor: pointer;
+  padding: .5em;
+  border-radius: 100px;
+
+  background: var(--pageBgColor);
+  color: var(--uiTextColor);
+  will-change: contents;
+  transition:
+    filter 750ms ease,
+    border-color 750ms ease;
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--uiTextColorOpacity);
+}
+
+.btnToogle:hover {
+  filter: opacity(.5);
+}
