@@ -69,11 +69,17 @@ function WeekProvider({ children }) {
     });
 
     setWeekAbbr({
-      ...weekLangAbbrs[baseLang],
       ...weekLangAbbrs[weekLang],
       ...custom,
     });
-  }, [baseLang, setWeekAbbr, weekAbbrCustom, weekLang]);
+  }, [setWeekAbbr, weekAbbrCustom, weekLang]);
+
+   React.useEffect(() => {
+
+     setWeekAbbr({
+       ...weekLangAbbrs[baseLang]
+     });
+   }, [baseLang, setWeekAbbr]);
 
   const state = {
     classes,
