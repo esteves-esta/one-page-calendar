@@ -12,14 +12,14 @@ function CustomizationProvider({ children }) {
     day: -1,
     month: -1,
     title: "",
-    year: 2023,
+    year: new Date().getFullYear(),
   });
 
   const [calendarBaseStyle, setCalendarBaseStyle] = useStickyState(
     "square",
     "one-page-cal-custom-basestyle"
   );
-  const [year, setYear] = React.useState(2023);
+  const [year, setYear] = React.useState(new Date().getFullYear());
   const [showCustomization, setShowCustomization] = React.useState(false);
 
   const [baseLang, setBaseLang] = useStickyState(
