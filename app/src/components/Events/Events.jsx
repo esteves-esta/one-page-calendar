@@ -139,7 +139,7 @@ function Events({ openEvents, setOpenEvents }) {
           )}
           {events.length > 1 && (
             <button className="eventBtn" onClick={exportAll}>
-              Export all as .css
+              Export all as .csv
             </button>
           )}
         </DraggableWindow>
